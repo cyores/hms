@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Dashboard
+                    {{ $user['name'] }} Dashboard
                 </div>
             </div>
         </div>

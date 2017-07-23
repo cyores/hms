@@ -1,0 +1,76 @@
+/*  
+	COLORS:
+	main grey:        #E1E2E1
+	primary blue:     #03A9F4
+	secondary yellow: #F4C703
+	tertiary red:     #F40331
+
+
+	dark blue:  #007AC1
+	light blue: #67DAFF
+	dark yellow: #BD9700
+	light yellow: #FFFA50
+*/
+
+/*  
+	TEXT COLORS:
+*/
+
+/* FONT */
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
+* { font-family: Raleway; }
+
+html, body { font-size: 1em; }
+main {
+	padding: 0;
+	margin: 0;
+	padding-top: 80px;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #E1E2E1;
+	z-index: 5;
+}
+
+nav {
+	background-color: #03A9F4;
+}
+
+/*BUTTON COLORS*/
+button {
+	background-color: #F4C703 !important;
+	color: #000 !important;
+}
+
+.btn-a {
+	background-color: #F4C703 !important;
+	color: #000 !important;
+}
+
+.transparent { opacity: 0.5; }
+
+/* Offset Additions */
+.off-tenth { margin-left: 10%; }
+.off-15 { margin-left: 15%; }
+
+.container { 
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+@media (min-width: 768px) {
+	.container {
+		width: 750px;
+	}
+}
+@media (min-width: 992px) {
+	.container {
+		width: 970px;
+	}
+}
+@media (min-width: 1200px) {
+	.container {
+		width: 1170px;
+	}
+}	

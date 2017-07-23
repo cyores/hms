@@ -6,12 +6,21 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App;
+use Auth;
+use DB;
 use View;
 
 class DashboardController extends Controller
 {
     public function index() {
     	$return_array = array();
+    	$id = Auth::id();
+    	$get_name = DB::select('SELECT `name` FROM `users` WHERE `id` = ? LIMIT 1', array($id));
+		foreach ($get_name as $key => $name) {
+			$return_array['user'] = array(
+					'name' => ucfirst($name->name) 
+					);
+		}
     	return View::make('dashboard.index', $return_array);
     }
 }
