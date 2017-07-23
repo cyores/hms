@@ -8,7 +8,11 @@
 .text-right  { text-align: right; }
 
 /* Text Sizes */
-
+.hgText { font-size: 2.0em; }
+.bgText { font-size: 1.5em; }
+.mdText { font-size: 1.2em; }
+.smText { font-size: 0.7em; }
+.tyText { font-size: 0.4em; }
 
 /* Margin Classes*/
 .margin0 { margin: 0; }

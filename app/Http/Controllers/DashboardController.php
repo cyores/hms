@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App;
 use Auth;
+use Carbon\Carbon;
 use DB;
 use View;
 
@@ -21,6 +22,7 @@ class DashboardController extends Controller
 					'name' => ucfirst($name->name) 
 					);
 		}
+		$return_array['date'] = Carbon::now()->subHours(4)->toDayDateTimeString();
     	return View::make('dashboard.index', $return_array);
     }
 }
