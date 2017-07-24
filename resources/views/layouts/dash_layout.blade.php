@@ -13,7 +13,10 @@
     <link href="{{ asset('css/helper-classes.css') }}" rel="stylesheet" type="text/css"> 
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">       
+    <meta name="csrf-token" content="{{ csrf_token() }}">  
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
 </head>
 <body>
     <nav>
@@ -29,16 +32,33 @@
         <div class="menu">
         <a href="#" class="pseudo button">Lap Times</a>
         @if(Auth::check())
-            <a href="/logout" class="pseudo button">Logout</a>
+            <a href="/logout" class="button btn-a">Logout</a>
         @endif
         </div>
     </nav>
 
     <main>
+        <div class="flex one two-1200 bg-lt-blue">
+            <div class="half pad0"><p class="pull-left bgText marginL20">Welcome, {{ $name }}</p></div>
+            <div class="none half-1200 pad0"><p class="pull-right bgText marginR20">{{ $date }}</p></div>
+        </div>
         <section class="container">
             @yield('content')
         </section>
     </main>
+
+    <div class="modal">
+        <input id="modal" type="checkbox" />
+        <label for="modal" class="overlay"></label>
+        <article>
+            <header>
+                <h3 id="model_title">Modal Title</h3>
+                <label for="modal" class="close">&times;</label>
+            </header>
+            <section id="model_body" class="content">Modal body paragraph or form</section>
+            <footer id="model_footer"><label for="modal" class="button dangerous">Cancel</label></footer>
+        </article>
+    </div>
 
 </body>
 </html>
