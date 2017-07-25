@@ -28,22 +28,52 @@
 
 <script type="text/javascript">
     function showAddEvent() {
-        var mobody = '<form id="formNewEvent" onsumbit="">'
-                        +'<input type="text" class="marginB10" placeholder="Event title" required>'
-                        +'<input type="text" class="marginB10" placeholder="Event description" required>'
+        var mobody = '<form id="formNewEvent" onsubmit="submitNewEvent(); return false;">'
+                        +'<input id="event-title" type="text" class="marginB10" placeholder="Event title" required>'
+                        +'<input id="event-desc" type="text" class="marginB10" placeholder="Event description" required>'
                         +'<label>Event Date</label>'
-                        +'<input type="date" class="marginB10" required>'
+                        +'<input id="event-date" type="date" class="marginB10" required>'
                         +'<label>Event Time</label>'
-                        +'<input type="text" class="marginB20" required>'
-                        +'<label><input type="radio" name="public" value="public" class="marginB10" required><span class="checkable">Public</span></label>'
-                        +'<label><input type="radio" name="public" value="private" class="marginB10" required><span class="checkable">Private</span></label>'
+                        +'<input id="event-time" type="time" class="marginB20" required>'
+                        +'<label><input type="radio" name="isPublic" value="Y" class="marginB10" required><span class="checkable">Public</span></label>'
+                        +'<label><input type="radio" name="isPublic" value="N" class="marginB10" required><span class="checkable">Private</span></label>'
                         +'<br><br>'
-                        +'<button type="submit" class="">Submit</button>'
+                        +'<button type="submit">Submit</button>'
                     +'</form>'
 
         $('#model_title').html('Add New Event');
         $('#model_body').html(mobody);
         // $('#model_footer').html('Add Event');
+    }
+
+    function submitNewEvent() {
+        console.log('Submitting new event');
+        var formData = new FormData();
+        formData.append('title', $("#event-title").val());
+        formData.append('desc', $("#event-desc").val());
+        formData.append('date', $("#event-date").val());
+        formData.append('time', $("#event-time").val());
+        formData.append('public', $('input[name=isPublic]:checked', '#formNewEvent').val());
+
+        $.ajax({
+            url: '/dashboard/newevent',
+            type: 'POST',
+            xhr: function() {
+                var mxXhr = $.ajaxSettings.xhr();
+                return mxXhr;
+            },
+            success: function() {
+                console.log('Successfully added new event');
+                $(".modal").hide();
+            },
+            error: function() {
+                console.log('There was an error adding new event');
+            },
+            // Actual data
+            data: formData,
+            // Options to tell jQuery not to process data or worry about content-type.
+            cache: false, contentType: false, processData: false
+        });
     }
 </script>
 

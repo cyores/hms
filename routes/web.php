@@ -4,6 +4,8 @@
 // Route::resource('/home', 'HomeController');
 
 Route::group(['middleware' => ['auth']], function(){
+	// Dashbaord routes
+	Route::post('dashboard/newevent', 'DashboardController@postNewEvent');
 	Route::any('dashboard', 'DashboardController@index');
 });
 

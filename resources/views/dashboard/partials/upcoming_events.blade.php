@@ -4,7 +4,7 @@
 		@if($event['public'] == 'Y')
 			<div class="event marginB20 bg-yellow">
 		@else
-			<div class="event marginB20 bg-red">
+			<div class="event marginB20 bg-red" style="color: #F3F3F3;">
 		@endif		
 			<p class="mdText"><b>{{ $event['title'] }}</b></p>
 			<p class="smText">{{ $event['desc'] }}</p>
