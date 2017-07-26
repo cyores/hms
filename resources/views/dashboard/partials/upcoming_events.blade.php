@@ -8,7 +8,7 @@
 		@endif		
 			<p class="mdText"><b>{{ $event['title'] }}</b></p>
 			<p class="smText">{{ $event['desc'] }}</p>
-			<p class="smText">{{ $event['date'] }} <b>@</b> {{ $event['time'] }}</p>
+			<p class="smText">{{ $event['date'] }} @ {{ $event['time'] }}</p>
 		</div>
 	@endforeach
 

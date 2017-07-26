@@ -3,6 +3,10 @@
 
 @section('content')
 
+<style type="text/css">
+    .ui-timepicker-wrapper { z-index: 9999999;  width: 150px; }
+</style>
+
 <div class="flex one two-1200 marginT20">
 
     <div class="two-third pull-left">
@@ -26,26 +30,35 @@
 
 </div>
 
+
 <script type="text/javascript">
     function showAddEvent() {
         var mobody = '<form id="formNewEvent" onsubmit="submitNewEvent(); return false;">'
                         +'<input id="event-title" type="text" class="marginB10" placeholder="Event title" required>'
                         +'<input id="event-desc" type="text" class="marginB10" placeholder="Event description" required>'
-                        +'<label>Event Date</label>'
-                        +'<input id="event-date" type="date" class="marginB10" required>'
-                        +'<label>Event Time</label>'
-                        +'<input id="event-time" type="time" class="marginB20" required>'
+                        +'<div id="date-time" class="flex one two-1200">'
+                            +'<div class="half">'
+                                +'<label>Event Date</label>'
+                                +'<input type="date" id="event-date" class="marginB10" required />'
+                            +'</div>'
+                            +'<div class="half">'
+                                +'<label>Event Time</label>'
+                                +'<input type="text" id="event-time" class="marginB20" required />'
+                            +'</div>'
+                        +'</div>'
                         +'<label><input type="radio" name="isPublic" value="Y" class="marginB10" required><span class="checkable">Public</span></label>'
                         +'<label><input type="radio" name="isPublic" value="N" class="marginB10" required><span class="checkable">Private</span></label>'
                         +'<br><br>'
                         +'<button type="submit">Submit</button>'
-                    +'</form>'
+                    +'</form>';
 
         $('#model_title').html('Add New Event');
         $('#model_body').html(mobody);
-        // $('#model_footer').html('Add Event');
+
+        $('#event-time').timepicker();
     }
 
+    
     function submitNewEvent() {
         console.log('Submitting new event');
         var formData = new FormData();
