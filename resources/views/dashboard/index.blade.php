@@ -55,7 +55,7 @@
         $('#model_title').html('Add New Event');
         $('#model_body').html(mobody);
 
-        $('#event-time').timepicker();
+        $('#event-time').timepicker({ 'scrollDefault': 'now' });
     }
 
     

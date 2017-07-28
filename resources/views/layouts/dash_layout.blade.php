@@ -18,9 +18,7 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.timepicker.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.datepair.min.js') }}"></script>
-    
+    <script type="text/javascript" src="{{ asset('js/jquery.timepicker.min.js') }}"></script>    
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {
