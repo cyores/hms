@@ -38,11 +38,14 @@
         <input type="checkbox" class="show">
         <label class="burger pseudo button">menu</label>
 
-        <div class="menu">
-        <a href="#" class="pseudo button">Lap Times</a>
-        @if(Auth::check())
-            <a href="/logout" class="button btn-a">Logout</a>
-        @endif
+        <div class="menu"> 
+            <a href="#" class="pseudo button">Movies &amp TV</a>
+            <a href="#" class="pseudo button">Pictures</a>
+            <a href="#" class="pseudo button">Music</a>
+            <a href="http://localhost" class="pseudo button">Lap Times</a>
+            @if(Auth::check())
+                <a href="/logout" class="button btn-a">Logout</a>
+            @endif
         </div>
     </nav>
 
