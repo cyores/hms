@@ -11,14 +11,13 @@
     <link href="{{ asset('css/picnic.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/helper-classes.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/jquery.timepicker.min.css') }}" rel="stylesheet" type="text/css">
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">  
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.timepicker.min.js') }}"></script>    
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {
@@ -40,8 +39,8 @@
 
         <div class="menu"> 
             <a href="movies" class="pseudo button">Movies &amp TV</a>
-            <a href="#" class="pseudo button">Pictures</a>
-            <a href="#" class="pseudo button">Music</a>
+            <a href="pictures" class="pseudo button">Pictures</a>
+            <a href="music" class="pseudo button">Music</a>
             <a href="http://localhost" class="pseudo button">Lap Times</a>
             <a href="account" class="pseudo button">Account</a>
             @if(Auth::check())
@@ -51,9 +50,10 @@
     </nav>
 
     <main>
-        <div class="flex one two-1200 bg-lt-blue">
-            <div class="full half-1200 pad0"><p class="pull-left bgText marginL20">Welcome, {{ $name }}</p></div>
-            <div class="none half-1200 pad0"><p class="pull-right bgText marginR20">{{ $date }}</p></div>
+        <div class="flex one bg-lt-blue marginB30">
+            <div class="container pad0">
+                <p class="bgText">{{ $user['name'] }}'s Account</p>
+            </div>
         </div>
         <section class="container">
             @yield('content')
