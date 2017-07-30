@@ -35,8 +35,8 @@
         </a>
 
         <!-- mobile menu -->
-        <input type="checkbox" class="show">
-        <label class="burger pseudo button">menu</label>
+        <input id="bmenub" type="checkbox" class="show">
+        <label for="bmenub" class="burger pseudo button">menu</label>
 
         <div class="menu"> 
             <a href="#" class="pseudo button">Movies &amp TV</a>

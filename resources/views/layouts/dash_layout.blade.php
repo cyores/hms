@@ -35,8 +35,8 @@
         </a>
 
         <!-- mobile menu -->
-        <input type="checkbox" class="show">
-        <label class="burger pseudo button">menu</label>
+        <input id="bmenub" type="checkbox" class="show">
+        <label for="bmenub" class="burger pseudo button">menu</label>
 
         <div class="menu"> 
             <a href="movies" class="pseudo button">Movies &amp TV</a>
@@ -51,7 +51,7 @@
 
     <main>
         <div class="flex one two-1200 bg-lt-blue">
-            <div class="half pad0"><p class="pull-left bgText marginL20">Welcome, {{ $name }}</p></div>
+            <div class="full half-1200 pad0"><p class="pull-left bgText marginL20">Welcome, {{ $name }}</p></div>
             <div class="none half-1200 pad0"><p class="pull-right bgText marginR20">{{ $date }}</p></div>
         </div>
         <section class="container">

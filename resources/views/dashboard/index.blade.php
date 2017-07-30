@@ -9,16 +9,16 @@
 
 <div class="flex one two-1200 marginT20">
 
-    <div class="two-third pull-left">
+    <div class="full two-third-1200">
         <article class="card card-tp">
             <header class="center-text bot-bor"><h3>News</h3></header>
             <footer><p>Coming soon . . .<p></footer>
         </article>
     </div>
 
-    <div class="third pull-right">
+    <div class="full third-1200">
         <article class="card card-tp">
-            <header class="bot-bor">
+            <header class="flex two bot-bor">
                 <h3>Upcoming Events</h3>
                 <label for="modal"><span class="pull-right bgText icon" onclick="showAddEvent();"><b>&#65291;</b></span></label>
             </header>
