@@ -7,6 +7,10 @@ Route::group(['middleware' => ['auth']], function(){
 	// Dashbaord routes
 	Route::post('dashboard/newevent', 'DashboardController@postNewEvent');
 	Route::any('dashboard', 'DashboardController@index');
+
+	// Movies routes
+	Route::any('movies/{id}', 'MoviesController@anyWatchMovie');
+	Route::any('movies', 'MoviesController@index');
 });
 
 // Route::get('/', function () {

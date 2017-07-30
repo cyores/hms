@@ -29,8 +29,8 @@
 </head>
 <body>
     <nav>
-        <a href="dashboard" class="brand">
-            <img class="logo" src="images/favicon.png">
+        <a href="/dashboard" class="brand">
+            <img class="logo" src="/images/favicon.png">
             <span>HMS</span>
         </a>
 
@@ -39,7 +39,7 @@
         <label class="burger pseudo button">menu</label>
 
         <div class="menu"> 
-            <a href="movies" class="pseudo button">Movies &amp TV</a>
+            <a href="#" class="pseudo button">Movies &amp TV</a>
             <a href="#" class="pseudo button">Pictures</a>
             <a href="#" class="pseudo button">Music</a>
             <a href="http://localhost" class="pseudo button">Lap Times</a>
@@ -50,10 +50,6 @@
     </nav>
 
     <main>
-        <div class="flex one two-1200 bg-lt-blue">
-            <div class="half pad0"><p class="pull-left bgText marginL20">Welcome, {{ $name }}</p></div>
-            <div class="none half-1200 pad0"><p class="pull-right bgText marginR20">{{ $date }}</p></div>
-        </div>
         <section class="container">
             @yield('content')
         </section>
