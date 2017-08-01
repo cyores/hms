@@ -13,23 +13,17 @@
 
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <input id="email" type="email" class="marginB10" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
-
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
                 </div>
 
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <input id="password" type="password" class="marginB10" name="password" placeholder="Password" required>
-
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
+                    <input id="password" type="password" class="marginB10" name="password" placeholder="Password" required>                   
                 </div>
+
+                @if ($errors->has('password') || $errors->has('email'))
+                    <div class="help-block marginB10" style="color: red;">
+                        <strong>Incorrect login information.</strong>
+                    </div>
+                @endif
 
                 <div class="form-group">
                     <label>
