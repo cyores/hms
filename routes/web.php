@@ -9,6 +9,7 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::any('dashboard', 'DashboardController@index');
 
 	// Movies routes
+	Route::any('movies/scan', 'MoviesController@anyScan');
 	Route::any('movies/{id}', 'MoviesController@anyWatchMovie');
 	Route::any('movies', 'MoviesController@index');
 

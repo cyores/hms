@@ -32,8 +32,8 @@ class Movies extends Model
 		$return_array = array();
 		$return_array['movies'] = Utility::getAllFiles('E:/Films');
 		foreach ($return_array['movies'] as $key => $movie) {
-			$title = explode('.', $movie, 2)[0];
-			$path = 'E:/Films/' . $movie;
+			$title = explode('.', $movie['title'], 2)[0];
+			$path = $movie['path'];
 			$s = DB::select('SELECT `title` FROM `movies` WHERE `title` = ?', array($title));
 			if(empty($s)) $i = DB::insert('INSERT `movies` (`title`, `path`) VALUES (?,?)', array($title, $path));
 		}

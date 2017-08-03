@@ -43,6 +43,7 @@
             <a href="#" class="pseudo button">Pictures</a>
             <a href="#" class="pseudo button">Music</a>
             <a href="http://localhost" class="pseudo button">Lap Times</a>
+            <a href="#" class="pseudo button">Files</a>
             <a href="account" class="pseudo button">Account</a>
             @if(Auth::check())
                 <a href="/logout" class="button btn-a">Logout</a>
