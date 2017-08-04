@@ -11,14 +11,14 @@
     <link href="{{ asset('css/picnic.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/helper-classes.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/jquery.timepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/mediaelementplayer.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">  
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.timepicker.min.js') }}"></script>    
+    <script type="text/javascript" src="{{ asset('js/mediaelement-and-player.min.js') }}"></script>    
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {

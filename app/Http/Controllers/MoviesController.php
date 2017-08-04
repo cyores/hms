@@ -32,6 +32,8 @@ class MoviesController extends Controller
     									);
     	}
 
+        $u = DB::update('UPDATE `movies` SET `count` = `count` + 1 WHERE `id` = ?', array($id));
+
     	return View::make('movies.watch', $return_array);
     }
 
