@@ -9,12 +9,17 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::any('dashboard', 'DashboardController@index');
 
 	// Movies routes
-	Route::any('movies/scan', 'MoviesController@anyScan');
+	Route::post('movies/scan', 'MoviesController@postScan');
 	Route::any('movies/{id}', 'MoviesController@anyWatchMovie');
 	Route::any('movies', 'MoviesController@index');
 
 	// Account routes
 	Route::any('account', 'AccountController@index');
+
+	// Files routes
+	Route::post('files/upload', 'FileController@postUploadFiles');
+	Route::any('files/{path}', 'FileController@anyOpenFolder');
+	Route::any('files', 'FileController@index');
 });
 
 // Route::get('/', function () {
