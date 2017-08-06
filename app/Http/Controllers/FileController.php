@@ -33,6 +33,8 @@ class FileController extends Controller
 
     	$return_array['objects'] = Utility::getThingsInDir($this->dir);
 
+    	$return_array['path'] = Auth::user()->name;;
+
     	return View::make('files.index', $return_array);
     }
 
@@ -50,6 +52,26 @@ class FileController extends Controller
     	$return_array['path'] = $path;
 
     	return View::make('files.folder', $return_array);
+    }
+
+    public function postUploadFiles(Request $request) {
+    	$path = $this->dir . $request->input("path") . '/';
+    	$path = str_replace(Auth::user()->name, Auth::id(), $path);
+
+    	$files_exist = $request->input("files_exist");
+
+    	if($files_exist == 'true') {
+    		foreach ($_FILES as $key => $file) {
+    			$file_name = $file["name"];
+    			$file_type = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+    			$file_file = $file["tmp_name"];
+
+    			$target_file = $path . $file_name;
+
+    			move_uploaded_file($file_file, $target_file);
+    		}
+    	}
+    	
     }
 
 }

@@ -25,6 +25,8 @@
 	@endif
 </div>
 
+@include('files.partials.upload')
+
 <script type="text/javascript">
 	
 
@@ -32,7 +34,6 @@
 	var pathparts = path.split("/");
 
 	// index 0 will be user id
-	console.log(pathparts);
 	for (var i = 1; i < pathparts.length; i++) {
 		if(i == (pathparts.length - 1)) $('.breadcrumb').append('<li class="active">'+pathparts[i]+'</li>');
 		else $('.breadcrumb').append('<li class=""><a href="/files/-'+pathparts[i]+'">'+pathparts[i]+'</a></li>');

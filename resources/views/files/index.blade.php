@@ -25,8 +25,11 @@
 	@endif
 </div>
 
-<script type="text/javascript">
+@include('files.partials.upload')
 
+<script type="text/javascript">
+	var path = "{!! $path !!}";
+	var pathparts = path.split("/");
 </script>
 
 @endsection

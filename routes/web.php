@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::any('account', 'AccountController@index');
 
 	// Files routes
+	Route::post('files/upload', 'FileController@postUploadFiles');
 	Route::any('files/{path}', 'FileController@anyOpenFolder');
 	Route::any('files', 'FileController@index');
 });
