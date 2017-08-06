@@ -37,7 +37,7 @@ class MoviesController extends Controller
     	return View::make('movies.watch', $return_array);
     }
 
-    public function anyScan() {
+    public function postScan() {
         return Movies::scanMoviesTV();
     }
 }

@@ -37,11 +37,17 @@ nav {
 	background-color: #03A9F4;
 }
 
+/* BOX SHADOW */
+.shadow { box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1); }
+.shadow:hover { box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08); }
+
 /* BACKGROUNDS */
 .bg-lt-blue { background-color: #2EBCFC; }
-.bg-red { background-color: #F40331; }
-.bg-yellow { background-color: #F4C703; }
-.bg-white{ background-color: #FFF; }
+.bg-red     { background-color: #F40331; }
+.bg-yellow  { background-color: #F4C703; }
+.bg-white   { background-color: #FFFFFF; }
+.bg-lt-grey { background-color: #777777; }
+.bg-dk-grey { background-color: #333333; }
 
 /*BUTTON COLORS*/
 button {
@@ -58,7 +64,9 @@ button {
 .off-tenth { margin-left: 10%; }
 .off-15 { margin-left: 15%; }
 
+/* Misc */
 .bot-bor { border-bottom: 1px solid #bbb !important; }
+.border { border: 2px solid #777; }
 
 .transparent { opacity: 0.5; }
 
@@ -70,6 +78,39 @@ button {
 	border-radius: 4px;
 }
 
+.link {
+	text-decoration: none;
+	color: #000;
+}
+
+/* Bootstrap Style Custom */
+ol {
+	margin-top: 0;
+}
+.breadcrumb {
+	padding: 3px 15px;
+	margin-bottom: 20px;
+	list-style: none;
+	background-color: #007AC1;
+	border-radius: 4px;
+}
+.breadcrumb > .active {
+	color: #EEE;
+}
+.breadcrumb > li {
+	display: inline-block;
+	margin-top: 5px;
+}
+.breadcrumb > li > a{
+	color: #BD9700;
+}
+.breadcrumb > li + li:before {
+	padding: 0 5px;
+	color: #ccc;
+	content: "/\00a0";
+}
+
+/* Container */
 .container { 
 	padding-right: 15px;
 	padding-left: 15px;

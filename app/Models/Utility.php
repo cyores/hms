@@ -30,4 +30,30 @@ class Utility {
 
     	return $return_array;
     }
+
+    public static function getThingsInDir(String $dir) {
+    	// return array_slice(scandir($dir), 2);
+
+    	$objs = array_slice(scandir($dir), 2);
+    	$return_array = array();
+
+    	foreach ($objs as $key => $object) {
+    		$type = substr(strrchr($object, '.'), 1);
+    		if($type == '') $type = "folder";
+
+    		$path = str_replace('Z:/HMS/', '', $dir . '/' . $object);
+    		$path = strstr($path, '/');
+    		$path = str_replace('/', '-', $path);
+
+    		$meta = array(
+    					"name" => explode('.', $object, 2)[0],
+    					"type" => $type,
+    					"path" => $path
+    					);
+
+    		array_push($return_array, $meta);
+    	}
+
+    	return $return_array;
+    }
 }

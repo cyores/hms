@@ -1,4 +1,4 @@
-@extends('layouts.movies_layout')
+@extends('layouts.minimal_layout')
 @section('title', ' | Watch')
 
 @section('content')
