@@ -17,14 +17,18 @@
     <div class="full pad0"><div id="results" class="pad10" style="position: fixed; border-radius: 4px"></div></div>
 </div> 
 
+<div id="movie-list">
 @foreach($movies as $key => $letter)
         <div class="flex bot-bor"><h2>{{ $key }}</h2></div>
-        <div id="movie-list" class="flex one four-1200 pad20">
+        <div class="flex one four-1200 pad20">
             @foreach($letter as $k => $movie)
                 @include('movies.partials.card', $movie)
             @endforeach
         </div>
 @endforeach
+</div>
+
+<div id="result-list" class="flex one four-1200 pad20" style="display: none;"></div>
 
 
 <script type="text/javascript">
@@ -55,12 +59,9 @@
         var formData = new FormData();
         formData.append('query', $('#search').val());
 
-        $('#results').html('').removeClass('bg-white');
-
-        $('#results').show();
-
         if($('#search').val() == '') {
-            $('#results').html('').removeClass('bg-white');
+            $('#result-list').empty().hide();
+            $('#movie-list').show();
             return;
         }
 
@@ -74,12 +75,15 @@
             },
             success: function(data) {
                 console.log('Searched', data);
-                $('#movie-list').html('');
+                $('#movie-list').hide();
+                $('#result-list').empty();
+                $('#result-list').show();
+
                 for (var i = 0; i < data.length; i++) {
-                    $('#results').append('<p><a class="link" href="/movies/'+data[i]['id']+'">'+data[i]['title']+'</a></p>');
+                    $('#result-list').append(data[i]);
                 }
-                $('#results').addClass('bg-white');
-                if(data.length == 0) $('#results').append('<p class="padR30">No results . . .</p>');
+
+                if(data.length == 0) $('#result-list').append('<p class="hgText">No results . . . </p>');
             },
             error: function(data) {
                 console.log('There was an error');

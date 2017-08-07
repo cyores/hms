@@ -46,10 +46,15 @@ class MoviesController extends Controller
 
         $return_array = array();
 
-        $get_results = DB::select('SELECT `title`, `id` FROM `movies` WHERE `title` LIKE ?', array($query . '%'));
+        $get_results = DB::select('SELECT `title`, `id`, `rating`, `count` FROM `movies` WHERE `title` LIKE ?', array($query . '%'));
 
         foreach ($get_results as $key => $value) {
-            array_push($return_array, $value);
+            $movie = array();
+            $movie['title'] = $value->title;
+            $movie['movie_id'] = $value->id;
+            $movie['rating'] = $value->rating;
+            $movie['count'] = $value->count;
+            array_push($return_array, View::make('movies.partials.card', compact('movie', 'movie'))->render());
         }
 
         return json_encode($return_array);
