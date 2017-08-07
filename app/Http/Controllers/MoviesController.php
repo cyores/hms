@@ -40,4 +40,18 @@ class MoviesController extends Controller
     public function postScan() {
         return Movies::scanMoviesTV();
     }
+
+    public function postSearch(Request $request){
+        $query = $request->input('query');
+
+        $return_array = array();
+
+        $get_results = DB::select('SELECT `title`, `id` FROM `movies` WHERE `title` LIKE ?', array($query . '%'));
+
+        foreach ($get_results as $key => $value) {
+            array_push($return_array, $value);
+        }
+
+        return json_encode($return_array);
+    }
 }
