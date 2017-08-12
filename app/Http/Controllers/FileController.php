@@ -45,8 +45,7 @@ class FileController extends Controller
 
     	$return_array['user_name'] = Auth::user()->name;
 
-    	$path = str_replace("-", '/', $path);
-    	$path = $user_id . $path;
+    	$path = $user_id . '/' . $path;
     	$return_array['objects'] = Utility::getThingsInDir($this->dir . $path);
 
     	$return_array['path'] = $path;

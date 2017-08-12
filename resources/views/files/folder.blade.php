@@ -36,7 +36,7 @@
 	// index 0 will be user id
 	for (var i = 1; i < pathparts.length; i++) {
 		if(i == (pathparts.length - 1)) $('.breadcrumb').append('<li class="active">'+pathparts[i]+'</li>');
-		else $('.breadcrumb').append('<li class=""><a href="/files/-'+pathparts[i]+'">'+pathparts[i]+'</a></li>');
+		else $('.breadcrumb').append('<li class=""><a href="/files/'+pathparts[i]+'">'+pathparts[i]+'</a></li>');
 	}
 
 

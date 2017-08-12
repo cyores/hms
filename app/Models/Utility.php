@@ -43,7 +43,6 @@ class Utility {
 
     		$path = str_replace('Z:/HMS/', '', $dir . '/' . $object);
     		$path = strstr($path, '/');
-    		$path = str_replace('/', '-', $path);
 
     		$meta = array(
     					"name" => explode('.', $object, 2)[0],
