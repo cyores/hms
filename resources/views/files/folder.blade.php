@@ -10,7 +10,7 @@
 {{-- Breadcrumb nav --}}
 <div class="flex one">
 	<ol class="breadcrumb marginT20">
-		<li class=""><a href="/files">{{ $user_name }}</a></li>
+		{{-- <li class=""><a href="/files">{{ $user_name }}</a></li> --}}
 	</ol>
 </div>
 
@@ -41,13 +41,14 @@
 
 <script type="text/javascript">
 	
-
+	var user = "{!! $user_name !!}";
 	var path = "{!! $path !!}";
 	var pathparts = path.split("/");
 
 	// index 0 will be user id
-	for (var i = 1; i < pathparts.length; i++) {
-		if(i == (pathparts.length - 1)) $('.breadcrumb').append('<li class="active">'+pathparts[i]+'</li>');
+	for (var i = 0; i < pathparts.length; i++) {
+		if(pathparts[i] == user && pathparts.length > 1) $('.breadcrumb').append('<li class="active"><a href="/files">'+pathparts[i]+'</a></li>')
+		else if(i == (pathparts.length - 1)) $('.breadcrumb').append('<li class="active">'+pathparts[i]+'</li>');
 		else $('.breadcrumb').append('<li class=""><a href="/files/'+pathparts[i]+'">'+pathparts[i]+'</a></li>');
 	}
 
@@ -103,7 +104,7 @@
 	function folderModal() {
 		console.log('File path', path);
 		var body =   '<p class="marginB20">Create new folder in '+pathparts[pathparts.length - 1]+'</p>'
-					+'<form class="marginB10" id="formFiles" onsubmit="uploadFiles()">'
+					+'<form class="marginB10" id="formFiles" onsubmit="createFolder()">'
 						+'<input class="marginB10" id="folder-name" type="text" placeholder="Folder Name" required>'
 						+'<button type="submit" class="default">Submit</button>'
 					+'</form>'
