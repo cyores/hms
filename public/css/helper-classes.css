@@ -67,6 +67,8 @@
 
 .padR0 { padding-right: 0; }
 .padR10 { padding-right: 10px; }
+.padR20 { padding-right: 20px; }
+.padR30 { padding-right: 30px; }
 
 /* Images */
 .img-responsive { display: block; width: 100%; height: auto; }

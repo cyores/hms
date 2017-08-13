@@ -40,4 +40,23 @@ class MoviesController extends Controller
     public function postScan() {
         return Movies::scanMoviesTV();
     }
+
+    public function postSearch(Request $request){
+        $query = $request->input('query');
+
+        $return_array = array();
+
+        $get_results = DB::select('SELECT `title`, `id`, `rating`, `count` FROM `movies` WHERE `title` LIKE ?', array($query . '%'));
+
+        foreach ($get_results as $key => $value) {
+            $movie = array();
+            $movie['title'] = $value->title;
+            $movie['movie_id'] = $value->id;
+            $movie['rating'] = $value->rating;
+            $movie['count'] = $value->count;
+            array_push($return_array, View::make('movies.partials.card', compact('movie', 'movie'))->render());
+        }
+
+        return json_encode($return_array);
+    }
 }

@@ -16,14 +16,15 @@ class Movies extends Model
 		$return_array = array();
 		$get_movies = DB::select('SELECT * FROM `movies` ORDER BY `title` ASC', array());
 		foreach ($get_movies as $key => $movie) {
-			$return_array['movies'][$movie->id] = array(
-											"movie_id" => $movie->id,
-											"title"    => $movie->title,
-											"length"   => $movie->length,
-											"count"    => $movie->count,
-											"rating"   => $movie->rating,
-											"path"     => $movie->path
-											);
+			$letter = substr($movie->title, 0, 1);
+			$return_array['movies'][$letter][$movie->id] = array(
+															"movie_id" => $movie->id,
+															"title"    => $movie->title,
+															"length"   => $movie->length,
+															"count"    => $movie->count,
+															"rating"   => $movie->rating,
+															"path"     => $movie->path
+														);
 		}
 		return $return_array;
 	}

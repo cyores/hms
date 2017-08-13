@@ -61,13 +61,17 @@ nav {
 	color: #000 !important;
 }
 
-.action-btn {
+.action-btn-group {
 	position: fixed;
 	bottom: 25px;
 	right: 25px;
+	float: right;
+}
+.action-btn {
 	width: 75px;
 	height: 75px;
 	border-radius: 100%;
+	margin-top: 20px;
 	padding: 10px;
 	cursor: pointer;
 	box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);

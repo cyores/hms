@@ -25,11 +25,19 @@
 	@endif
 </div>
 
-<label for="modal">
-	<div class="action-btn bg-yellow pull-right" onclick="uploadModal()">
-		<img class="img-responsive" src="/images/icons/upload.svg">
-	</div>
-</label>
+<div class="action-btn-group">
+	<label for="modal">
+		<div class="action-btn bg-yellow" onclick="folderModal()">
+			<img class="img-responsive" src="/images/icons/new-folder.svg">
+		</div>
+	</label>
+
+	<label for="modal">
+		<div class="action-btn bg-yellow" onclick="uploadModal()">
+			<img class="img-responsive" src="/images/icons/upload.svg">
+		</div>
+	</label>
+</div>
 
 <script type="text/javascript">
 	
@@ -84,6 +92,45 @@
             },
             error: function() {
                 console.log('There was an error uploading files');
+            },
+            // Actual data
+            data: formData,
+            // Options to tell jQuery not to process data or worry about content-type.
+            cache: false, contentType: false, processData: false
+        });
+	}
+
+	function folderModal() {
+		console.log('File path', path);
+		var body =   '<p class="marginB20">Create new folder in '+pathparts[pathparts.length - 1]+'</p>'
+					+'<form class="marginB10" id="formFiles" onsubmit="uploadFiles()">'
+						+'<input class="marginB10" id="folder-name" type="text" placeholder="Folder Name" required>'
+						+'<button type="submit" class="default">Submit</button>'
+					+'</form>'
+
+		$('#model_title').html('New Folder');
+        $('#model_body').html(body);
+	}
+
+	function createFolder() {
+		console.log('Creating folder');
+		var formData = new FormData();
+		formData.append('name', $('#folder-name').val());
+		formData.append('path', path);
+
+		$.ajax({
+            url: '/files/newfolder',
+            type: 'POST',
+            xhr: function() {
+                var mxXhr = $.ajaxSettings.xhr();
+                return mxXhr;
+            },
+            success: function() {
+                console.log('Successfully created folder');
+                // $(".modal").hide();
+            },
+            error: function() {
+                console.log('There was an error creating that folder');
             },
             // Actual data
             data: formData,
