@@ -48,7 +48,7 @@
 		var body =   '<p class="marginB20">Upload files to '+pathparts[pathparts.length - 1]+'</p>'
 					+'<form class="marginB10" id="formFiles" onsubmit="uploadFiles()">'
 						+'<input class="marginB10" id="files" type="file" multiple required>'
-						+'<button type="submit">Submit</button>'
+						+'<button type="submit" class="default">Submit</button>'
 					+'</form>'
 
 		$('#model_title').html('Upload Files');
