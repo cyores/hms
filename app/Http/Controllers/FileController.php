@@ -40,7 +40,7 @@ class FileController extends Controller
         }   	
 
         $return_array['user_name'] = $user_name;
-    	$return_array['path'] = str_replace($user_id, $user_name, $path);
+    	$return_array['path'] = preg_replace('#'.$user_id.'#i', $user_name, $path, 1);
 
     	return View::make('files.folder', $return_array);
     }
