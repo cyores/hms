@@ -5,7 +5,7 @@
 
 <div class="flex one two-1200">
 	<div class="four-fifth"><h1>Movies</h1></div>
-	<div class="fifth pad10 padT20"><button class="pull-right" onclick="scan()">Scan for Movies</button></div>
+	<div class="fifth pad10 padT20"><button class="default pull-right" onclick="scan()">Scan for Movies</button></div>
 </div>
 
 <div class="flex one four-1200">

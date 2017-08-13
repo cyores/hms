@@ -70,7 +70,16 @@ class FileController extends Controller
     			move_uploaded_file($file_file, $target_file);
     		}
     	}
-    	
+    }
+
+    public function postDelete(Request $request) {
+        $path = Auth::id() . $request->input('path');
+        if(strpos($path, '.') !== false) {
+            unlink($this->dir . $path);
+        }  
+        else {
+            rmdir($this->dir . $path);
+        }     
     }
 
 }
