@@ -15,7 +15,7 @@ use View;
 class MoviesController extends Controller
 {
     public function index() {
-    	$return_array = Movies::getAllMoviesTV();
+    	$return_array = Movies::getAllMovies();
     	return View::make('movies.index', $return_array);
     }
 
@@ -38,7 +38,7 @@ class MoviesController extends Controller
     }
 
     public function postScan() {
-        return Movies::scanMoviesTV();
+        return Movies::scanMovies();
     }
 
     public function postSearch(Request $request){

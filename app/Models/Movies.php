@@ -12,7 +12,7 @@ use Carbon\Carbon;
 
 class Movies extends Model
 {
-	public static function getAllMoviesTV() {
+	public static function getAllMovies() {
 		$return_array = array();
 		$get_movies = DB::select('SELECT * FROM `movies` ORDER BY `title` ASC', array());
 		foreach ($get_movies as $key => $movie) {
@@ -29,7 +29,7 @@ class Movies extends Model
 		return $return_array;
 	}
 
-	public static function scanMoviesTV() {
+	public static function scanMovies() {
 		$return_array = array();
 		$return_array['movies'] = Utility::getAllFiles('E:/Films');
 		foreach ($return_array['movies'] as $key => $movie) {
@@ -38,7 +38,6 @@ class Movies extends Model
 			$s = DB::select('SELECT `title` FROM `movies` WHERE `title` = ?', array($title));
 			if(empty($s)) $i = DB::insert('INSERT `movies` (`title`, `path`) VALUES (?,?)', array($title, $path));
 		}
-		// $return_array['tv'] = Utility::getAllFiles('E:/TV');
 		return $return_array;
 	}
 }

@@ -15,6 +15,7 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::any('movies', 'MoviesController@index');
 
 	// TV Shows routes
+	Route::any('tv', 'TVController@index');
 
 	// Account routes
 	Route::any('account', 'AccountController@index');
