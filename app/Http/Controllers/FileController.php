@@ -82,4 +82,11 @@ class FileController extends Controller
         }     
     }
 
+    public function postNewFolder(Request $request) {
+        $path = $this->dir . $request->input('path');
+        $path = str_replace(Auth::user()->name, Auth::id(), $path);
+        $name = $request->input('name');
+        mkdir($path . '/' . $name);
+    }
+
 }
