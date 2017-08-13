@@ -49,7 +49,7 @@
                         +'<label><input type="radio" name="isPublic" value="Y" class="marginB10" required><span class="checkable">Public</span></label>'
                         +'<label><input type="radio" name="isPublic" value="N" class="marginB10" required><span class="checkable">Private</span></label>'
                         +'<br><br>'
-                        +'<button type="submit">Submit</button>'
+                        +'<button type="submit" class="default">Submit</button>'
                     +'</form>';
 
         $('#model_title').html('Add New Event');

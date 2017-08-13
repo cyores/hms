@@ -16,6 +16,7 @@
 
 /* Margin Classes */
 .margin0 { margin: 0; }
+.margin10 { margin: 10; }
 .margin20 { margin: 20; }
 
 .marginT0  { margin-top: 0; }
@@ -46,6 +47,7 @@
 
 /* Padding Classes*/
 .pad0 { padding: 0; }
+.pad5 { padding: 5; }
 .pad10 { padding: 10px; }
 .pad20 { padding: 20px; }
 .pad30 { padding: 30px; }

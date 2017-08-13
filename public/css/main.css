@@ -45,14 +45,15 @@ nav {
 .bg-lt-blue { background-color: #2EBCFC; }
 .bg-red     { background-color: #F40331; }
 .bg-yellow  { background-color: #F4C703; }
+.bg-blue    { background-color: #03A9F4; }
 .bg-white   { background-color: #FFFFFF; }
 .bg-lt-grey { background-color: #777777; }
 .bg-dk-grey { background-color: #333333; }
 
 /* BUTTONS */
-button {
-	background-color: #F4C703 !important;
-	color: #000 !important;
+.default {
+	background-color: #F4C703;
+	color: #000;
 }
 
 .btn-a {
@@ -103,22 +104,23 @@ ol {
 	padding: 3px 15px;
 	margin-bottom: 20px;
 	list-style: none;
-	background-color: #007AC1;
+	/*background-color: #007AC1;*/
+	background-color: #F4C703;
 	border-radius: 4px;
 }
 .breadcrumb > .active {
-	color: #EEE;
+	color: #000;
 }
 .breadcrumb > li {
 	display: inline-block;
 	margin-top: 5px;
 }
 .breadcrumb > li > a{
-	color: #F4C703;
+	color: #007AC1;
 }
 .breadcrumb > li + li:before {
 	padding: 0 5px;
-	color: #ccc;
+	color: #777;
 	content: "/\00a0";
 }
 

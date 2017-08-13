@@ -45,8 +45,7 @@ class FileController extends Controller
 
     	$return_array['user_name'] = Auth::user()->name;
 
-    	$path = str_replace("-", '/', $path);
-    	$path = $user_id . $path;
+    	$path = $user_id . '/' . $path;
     	$return_array['objects'] = Utility::getThingsInDir($this->dir . $path);
 
     	$return_array['path'] = $path;
@@ -71,7 +70,16 @@ class FileController extends Controller
     			move_uploaded_file($file_file, $target_file);
     		}
     	}
-    	
+    }
+
+    public function postDelete(Request $request) {
+        $path = Auth::id() . $request->input('path');
+        if(strpos($path, '.') !== false) {
+            unlink($this->dir . $path);
+        }  
+        else {
+            rmdir($this->dir . $path);
+        }     
     }
 
 }
