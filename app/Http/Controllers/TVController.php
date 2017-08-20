@@ -15,9 +15,8 @@ use View;
 class TVController extends Controller
 {
     public function index() {
-    	// $return_array = TV::getAllShows();
-    	$return_array = TV::scanShows();
-    	// $return_array = array();
+    	// $return_array = TV::scanShows();
+    	$return_array['shows'] = TV::getShows();
     	return View::make('tv.index', $return_array);
     }
 }

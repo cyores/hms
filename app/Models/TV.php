@@ -12,8 +12,17 @@ use Carbon\Carbon;
 
 class TV extends Model
 {
-	// fix episode file name before you run this
-	// this is init the db tvshows
+
+	public static function getShows() {
+		$return_array = array();
+		$s = DB::select('SELECT DISTINCT `show_title`, `id` FROM `tvshows`', array());
+		foreach ($s as $key => $show) {
+			array_push($return_array, $show->show_title);
+		}
+
+		return $return_array;
+	}
+
 	public static function scanShows() {
 		$return_array = array();
 
