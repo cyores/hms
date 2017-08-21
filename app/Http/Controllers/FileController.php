@@ -10,6 +10,7 @@ use App\Models\Utility;
 use Auth;
 use Carbon\Carbon;
 use DB;
+use Route;
 use View;
 
 class FileController extends Controller
@@ -18,37 +19,28 @@ class FileController extends Controller
 	private $vhost;
 
 	public function __construct() {
+        $user_id = Auth::id();
 		$this->dir = 'Z:/HMS/';
 		$this->vhost = 'files.hms.dev';
 	}
 
-    public function index() {
+    public function anyOpenFolder($path = '') {
     	$user_id = Auth::id();
+        $user_name = Auth::user()->name;
 
-    	$this->dir = Files::makeDir($this->dir . $user_id);
+        $return_array = array();
 
-    	$return_array = array();
+        if($path == '') {
+            $path = $user_id;
+            $return_array['objects'] = Utility::getThingsInDir($this->dir . $path);
+        }    	
+        else {
+            $path = $user_id . '/' . $path;
+            $return_array['objects'] = Utility::getThingsInDir($this->dir . $path);
+        }   	
 
-    	$return_array['user_name'] = Auth::user()->name;
-
-    	$return_array['objects'] = Utility::getThingsInDir($this->dir);
-
-    	$return_array['path'] = Auth::user()->name;;
-
-    	return View::make('files.index', $return_array);
-    }
-
-    public function anyOpenFolder($path) {
-    	$user_id = Auth::id();
-
-    	$return_array = array();
-
-    	$return_array['user_name'] = Auth::user()->name;
-
-    	$path = $user_id . '/' . $path;
-    	$return_array['objects'] = Utility::getThingsInDir($this->dir . $path);
-
-    	$return_array['path'] = $path;
+        $return_array['user_name'] = $user_name;
+    	$return_array['path'] = preg_replace('#'.$user_id.'#i', $user_name, $path, 1);
 
     	return View::make('files.folder', $return_array);
     }

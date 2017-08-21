@@ -56,8 +56,6 @@
 
             <div class="flex one">
                 <ol class="breadcrumb marginT20">
-                    {{-- <li class="active">{{ $user_name }}</li> --}}
-                    <li class=""><a href="/files">{{ $user_name }}</a></li>
                 </ol>
             </div>
 

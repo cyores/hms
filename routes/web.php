@@ -26,11 +26,12 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::post('files/upload', 'FileController@postUploadFiles');
 	Route::post('files/delete', 'FileController@postDelete');
 	Route::post('files/newfolder', 'FileController@postNewFolder');
-	Route::any('files/{path}', 'FileController@anyOpenFolder')->where('path', '(.*)');
-	Route::any('files', 'FileController@index');
 
+	Route::any('files/{path?}', 'FileController@anyOpenFolder')->where('path', '(.*)');
+	
 	// Pictures routes
 	Route::any('pictures', 'PictureController@index');
+
 
 });
 
