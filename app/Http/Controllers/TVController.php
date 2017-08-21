@@ -19,4 +19,14 @@ class TVController extends Controller
     	$return_array['shows'] = TV::getShows();
     	return View::make('tv.index', $return_array);
     }
+
+    public function anyShow($show_id) {
+    	$return_array['seasons'] = TV::getSeasons($show_id);
+    	return View::make('tv.show', $return_array);	
+    }
+
+    public function anySeason($show_id, $sezn_id) {
+    	$return_array['episodes'] = TV::getEpisodes($sezn_id);
+    	return View::make('tv.season', $return_array);	
+    }
 }

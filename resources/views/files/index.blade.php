@@ -1,19 +1,7 @@
-@extends('layouts.minimal_layout')
+@extends('layouts.files_layout')
 @section('title', ' | My Files')
 
 @section('content')
-
-<style type="text/css">
-	
-</style>
-
-{{-- Breadcrumb nav --}}
-<div class="flex one">
-	<ol class="breadcrumb marginT20">
-		<li class="active">{{ $user_name }}</li>
-	</ol>
-</div>
-
 
 <div class="flex one four-700 six-1200">
 	@if(!empty($objects))
@@ -23,20 +11,6 @@
 	@else
 		<p class="mdText">Nothing here.</p>
 	@endif
-</div>
-
-<div class="action-btn-group">
-	<label for="modal">
-		<div class="action-btn bg-yellow" onclick="folderModal()">
-			<img class="img-responsive" src="/images/icons/new-folder.svg">
-		</div>
-	</label>
-
-	<label for="modal">
-		<div class="action-btn bg-yellow" onclick="uploadModal()">
-			<img class="img-responsive" src="/images/icons/upload.svg">
-		</div>
-	</label>
 </div>
 
 <script type="text/javascript">

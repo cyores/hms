@@ -51,16 +51,32 @@
         </div>
     </nav>
 
-    <main>
-        <section>
-            @yield('banner')
-        </section>
+    <main>        
         <section class="container">
+
+            <div class="flex one">
+                <ol class="breadcrumb marginT20">
+                    {{-- <li class="active">{{ $user_name }}</li> --}}
+                    <li class=""><a href="/files">{{ $user_name }}</a></li>
+                </ol>
+            </div>
+
             @yield('content')
-        </section>
-        <section class="marginT100">
-            <div class="bg-dk-grey" style="height: 400px">
-            @yield('footer')
+
+            <div class="action-btn-group">
+                <label for="modal">
+                    <div class="action-btn bg-yellow" onclick="folderModal()">
+                        <img class="img-responsive" src="/images/icons/new-folder.svg">
+                    </div>
+                </label>
+
+                <label for="modal">
+                    <div class="action-btn bg-yellow" onclick="uploadModal()">
+                        <img class="img-responsive" src="/images/icons/upload.svg">
+                    </div>
+                </label>
+            </div>
+
         </section>
     </main>
 
