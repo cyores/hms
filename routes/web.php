@@ -14,6 +14,11 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::any('movies/{id}', 'MoviesController@anyWatchMovie');
 	Route::any('movies', 'MoviesController@index');
 
+	// TV Shows routes
+	Route::any('tv/{show_id}/{sezn_id}', 'TVController@anySeason');
+	Route::any('tv/{show_id}', 'TVController@anyShow');
+	Route::any('tv', 'TVController@index');
+
 	// Account routes
 	Route::any('account', 'AccountController@index');
 
@@ -21,7 +26,13 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::post('files/upload', 'FileController@postUploadFiles');
 	Route::post('files/delete', 'FileController@postDelete');
 	Route::post('files/newfolder', 'FileController@postNewFolder');
+
 	Route::any('files/{path?}', 'FileController@anyOpenFolder')->where('path', '(.*)');
+	
+	// Pictures routes
+	Route::any('pictures', 'PictureController@index');
+
+
 });
 
 // Route::get('/', function () {

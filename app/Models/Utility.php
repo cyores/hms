@@ -40,6 +40,7 @@ class Utility {
     	foreach ($objs as $key => $object) {
     		$type = substr(strrchr($object, '.'), 1);
     		if($type == '') $type = "folder";
+            if($type == 'db') continue;
 
     		$path = str_replace('Z:/HMS/', '', $dir . '/' . $object);
     		$path = strstr($path, '/');

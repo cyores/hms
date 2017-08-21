@@ -11,14 +11,14 @@
     <link href="{{ asset('css/picnic.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/helper-classes.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/jquery.timepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/mediaelementplayer.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">  
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.timepicker.min.js') }}"></script>    
+    <script type="text/javascript" src="{{ asset('js/mediaelement-and-player.min.js') }}"></script>    
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {
@@ -29,8 +29,8 @@
 </head>
 <body>
     <nav>
-        <a href="dashboard" class="brand">
-            <img class="logo" src="images/favicon.png">
+        <a href="/dashboard" class="brand">
+            <img class="logo" src="/images/favicon.png">
             <span>HMS</span>
         </a>
 
@@ -51,13 +51,32 @@
         </div>
     </nav>
 
-    <main>
-        <div class="flex one two-1200 bg-lt-blue">
-            <div class="full half-1200 pad0"><p class="pull-left bgText marginL20">Welcome, {{ $name }}</p></div>
-            <div class="none half-1200 pad0"><p class="pull-right bgText marginR20">{{ $date }}</p></div>
-        </div>
+    <main>        
         <section class="container">
+
+            <div class="flex one">
+                <ol class="breadcrumb marginT20">
+                    {{-- <li class="active">{{ $user_name }}</li> --}}
+                    <li class=""><a href="/files">{{ $user_name }}</a></li>
+                </ol>
+            </div>
+
             @yield('content')
+
+            <div class="action-btn-group">
+                <label for="modal">
+                    <div class="action-btn bg-yellow" onclick="folderModal()">
+                        <img class="img-responsive" src="/images/icons/new-folder.svg">
+                    </div>
+                </label>
+
+                <label for="modal">
+                    <div class="action-btn bg-yellow" onclick="uploadModal()">
+                        <img class="img-responsive" src="/images/icons/upload.svg">
+                    </div>
+                </label>
+            </div>
+
         </section>
     </main>
 
