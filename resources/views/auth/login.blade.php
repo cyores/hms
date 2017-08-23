@@ -2,7 +2,32 @@
 @section('title', ' | Login')
 
 @section('content')
-<section class="flex one two-1200 marginT100">
+
+
+<h2>Quick Links</h2>
+
+<section class="flex one four-1200">
+    
+    <div class="full fourth-1200" onclick="navTo('/tv')" style="cursor: pointer;">
+        <article class="card card-blue">
+            <header class="text-center no-border">TV</header>
+            <footer class="text-center">5 TV Shows!</footer>
+        </article>
+    </div>
+
+    <div class="full fourth-1200" onclick="navTo('/movies')" style="cursor: pointer;">
+        <article class="card card-red">
+            <header class="text-center no-border" style="color: #F3F3F3;">Movies</header>
+            <footer class="text-center" style="color: #F3F3F3;">More than 30 movies!</footer>
+        </article>
+    </div>
+     
+</section>
+
+<p class="marginT50 text-center"><b>Some things don't require an account, but creating an account gives you access to more features!</b></p>
+<p class="marginB50 text-center"><b>Login or signup below.</b></p>
+
+<section class="flex one two-1200">
 
 <div>
     <article class="card">
@@ -33,7 +58,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="marginB10">Login</button><br>
+                    <button type="submit" class="default marginB10">Login</button><br>
                     <a href="{{ route('password.request') }}">Forgot Your Password?</a>
                 </div>
 
@@ -51,10 +76,10 @@
             <h3>Features</h3>
             <ul>
                 <li>File Backup</li>
-                <li>Access to picture and video</li>
-                <li>News</li>
+                <li>Access to pictures (coming soon)</li>
+                <li>Personal Dashboard</li>
                 <li>Upcoming Events</li>
-                <li>Password Manager</li>
+                <li>Password Manager (coming soon)</li>
             </ul>
             <a href="/register" class="button btn-a">Register Here</a>
         </footer>
@@ -63,6 +88,9 @@
 
 </section>
 
-                    
-
+<script type="text/javascript">
+    function navTo(link) {
+        window.location = link;
+    }
+</script>
 @endsection

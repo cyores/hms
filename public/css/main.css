@@ -88,10 +88,15 @@ nav {
 /* Misc */
 .bot-bor { border-bottom: 1px solid #bbb !important; }
 .border { border: 2px solid #777; }
+.no-border { border: none !important; }
 
 .transparent { opacity: 0.5; }
 
-.card-tp { border: none; background-color: rgba(0,0,0,0) !important; }
+/* Cards */
+.card-tp     { border: none; background-color: rgba(0,0,0,0) !important; }
+.card-blue   { border: none; background-color: #03A9F4 !important; }
+.card-yellow { border: none; background-color: #F4C703 !important; }
+.card-red    { border: none; background-color: #F40331 !important; }
 
 .event {
 	padding: 10px;

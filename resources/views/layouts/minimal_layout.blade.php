@@ -41,11 +41,11 @@
         <div class="menu"> 
             <a href="/movies" class="pseudo button">Movies</a>
             <a href="/tv" class="pseudo button">TV Shows</a>
-            <a href="/pictures" class="pseudo button">Pictures</a>
-            <a href="http://localhost" class="pseudo button">Lap Times</a>
-            <a href="/files" class="pseudo button">Files</a>
-            <a href="/account" class="pseudo button">Account</a>
             @if(Auth::check())
+                <a href="/pictures" class="pseudo button">Pictures</a>
+                <a href="http://localhost" class="pseudo button">Lap Times</a>
+                <a href="/files" class="pseudo button">Files</a>
+                <a href="/account" class="pseudo button">Account</a>
                 <a href="/logout" class="button btn-a">Logout</a>
             @endif
         </div>
