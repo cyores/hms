@@ -8,8 +8,8 @@
 </style>
 
 <div class="flex one two-1200">
-	<div class="four-fifth"><h1>TV Shows</h1></div>
-	<div class="fifth pad10 padT20"><button class="default pull-right" onclick="scan()">Scan for Shows</button></div>
+	<div class="half four-fifth-1200"><h1>TV Shows</h1></div>
+	<div class="half fifth-1200 pad10 padT20"><button class="default pull-right" onclick="scan()">Scan for Shows</button></div>
 </div>
 
 <div id="tv-list" class="flex one four-1200 pad20">
@@ -19,10 +19,6 @@
             
     @endforeach
 </div>
-
-
-<div id="result-list" class="flex one four-1200 pad20" style="display: none;"></div>
-
 
 <script type="text/javascript">
 

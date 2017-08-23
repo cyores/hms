@@ -40,7 +40,7 @@ class TV extends Model
 											"link"      => '/tv' . '/' . $id . '/' . $sezn->sezn_id,
 											"sezn_num"  => $sezn->sezn_num,
 											"show_name" => $sezn->show_name,
-											"poster"    => '/images/tv_posters/' . $sezn->show_name . '.jpg',
+											"poster"    => '/images/tv_posters/seasons/' . $sezn->show_name . '/Season' . $sezn->sezn_num . '.jpg',
 											"banner"    => '/images/tv_banners/' . $sezn->show_name . '.jpg',
 											"type"      => 'seasons'
 											));
@@ -60,7 +60,8 @@ class TV extends Model
 											"link"      => $epis->path,
 											"sezn_num"  => $epis->sezn_num,
 											"show_name" => $epis->show_name,
-											"poster"    => '/images/tv_posters/' . $epis->show_name . '.jpg',
+											"epis_num"  => $epis->epis_num,
+											"poster"    => '/images/tv_posters/seasons/' . $epis->show_name . '/Season' . $epis->sezn_num . '.jpg',
 											"banner"    => '/images/tv_banners/' . $epis->show_name . '.jpg',
 											"type"      => 'episode'
 											));

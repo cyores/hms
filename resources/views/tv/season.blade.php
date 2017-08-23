@@ -8,7 +8,13 @@
 </style>
 
 <div class="flex one two-1200">
-    <div class="four-fifth"><h1>{{ $episodes[0]['show_name'] }}</h1></div>
+    <div class="four-fifth">
+        <h1>{{ $episodes[0]['show_name'] }}
+        @if($episodes[0]['type'] == 'episode')
+            - Season {{ $episodes[0]['sezn_num'] }}
+        @endif
+        </h1>
+    </div>
 </div>
 
 <div id="tv-list" class="flex one four-1200 pad20">
