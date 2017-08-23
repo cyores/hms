@@ -8,17 +8,6 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::post('dashboard/newevent', 'DashboardController@postNewEvent');
 	Route::any('dashboard', 'DashboardController@index');
 
-	// Movies routes
-	Route::post('movies/search', 'MoviesController@postSearch');
-	Route::post('movies/scan', 'MoviesController@postScan');
-	Route::any('movies/{id}', 'MoviesController@anyWatchMovie');
-	Route::any('movies', 'MoviesController@index');
-
-	// TV Shows routes
-	Route::any('tv/{show_id}/{sezn_id}', 'TVController@anySeason');
-	Route::any('tv/{show_id}', 'TVController@anyShow');
-	Route::any('tv', 'TVController@index');
-
 	// Account routes
 	Route::any('account', 'AccountController@index');
 
@@ -34,6 +23,17 @@ Route::group(['middleware' => ['auth']], function(){
 
 
 });
+
+// TV Shows routes
+Route::any('tv/{show_id}/{sezn_id}', 'TVController@anySeason');
+Route::any('tv/{show_id}', 'TVController@anyShow');
+Route::any('tv', 'TVController@index');
+
+// Movies routes
+Route::post('movies/search', 'MoviesController@postSearch');
+Route::post('movies/scan', 'MoviesController@postScan');
+Route::any('movies/{id}', 'MoviesController@anyWatchMovie');
+Route::any('movies', 'MoviesController@index');
 
 // Route::get('/', function () {
 //     return view('welcome');
