@@ -4,10 +4,16 @@
 		<a href="{{ $value['link'] }}" class="button btn-a stack">Episode {{ $value['epis_num'] }}</a>
 	@endif
 
-	<a href="{{ $value['link'] }}"><img class="stack" src="{{ $value['poster'] }}"></a>
+	<img class="img-responsive stack" src="{{ $value['poster'] }}" onclick="navTo('{{ $value['link'] }}')" style="cursor: pointer;">
 
 	@if($value['type'] != 'show')
 		<a href="{{ $value['link'] }}" class="button btn-a stack">{{ $value['title'] }}</a>
 	@endif
 	
 </div>
+
+<script type="text/javascript">
+	function navTo(link) {
+		window.location = link;
+	}
+</script>
