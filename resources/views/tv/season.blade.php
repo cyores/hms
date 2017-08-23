@@ -1,5 +1,5 @@
 @extends('layouts.minimal_layout')
-@section('title', ' | ')
+@section('title', ' | ' . $episodes[0]["sezn_title"])
 
 @section('content')
 
@@ -11,7 +11,7 @@
     <div class="four-fifth">
         <h1>{{ $episodes[0]['show_name'] }}
         @if($episodes[0]['type'] == 'episode')
-            - Season {{ $episodes[0]['sezn_num'] }}
+            - {{ $episodes[0]["sezn_title"] }}
         @endif
         </h1>
     </div>

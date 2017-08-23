@@ -57,8 +57,9 @@ class TV extends Model
 			array_push($return_array, array(
 											"id"        => $epis->epis_id,
 											"title"     => $epis->epis_title,
-											"link"      => $epis->path,
+											"link"      => '/tv/watch/' . $epis->epis_id,
 											"sezn_num"  => $epis->sezn_num,
+											"sezn_title"  => $epis->sezn_title,
 											"show_name" => $epis->show_name,
 											"epis_num"  => $epis->epis_num,
 											"poster"    => '/images/tv_posters/seasons/' . $epis->show_name . '/Season' . $epis->sezn_num . '.jpg',

@@ -29,4 +29,27 @@ class TVController extends Controller
     	$return_array['episodes'] = TV::getEpisodes($sezn_id);
     	return View::make('tv.season', $return_array);	
     }
+
+    public static function anyWatchEpisode($epis_id) {
+        $return_array = array();
+        $get_epis = DB::select(  'SELECT `epis_id`, `epis_title`, `epis_num`, `path`, `count`, `tv_seasons`.`sezn_title`, `tv_shows`.`show_name` FROM `tv_episodes`'
+                                .'JOIN `tv_shows` USING(`show_id`)'
+                                .'JOIN `tv_seasons` USING(`sezn_id`)'
+                                .'WHERE `epis_id` = ?'
+                                , array($epis_id));
+        foreach ($get_epis as $key => $epis) {
+            $path = str_replace('E:/', '', $epis->path);
+            $return_array['episode'] = array(
+                                        'title'      => $epis->epis_title,
+                                        'path'       => $path,
+                                        'count'      => $epis->count,
+                                        'sezn_title' => $epis->sezn_title,
+                                        'show_name'  => $epis->show_name
+                                        );
+        }
+
+        $u = DB::update('UPDATE `tv_episodes` SET `count` = `count` + 1 WHERE `epis_id` = ?', array($epis_id));
+
+        return View::make('tv.watch', $return_array);
+    }
 }
