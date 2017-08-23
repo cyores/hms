@@ -24,6 +24,13 @@ Route::group(['middleware' => ['auth']], function(){
 
 });
 
+// Special Movies and TV Redirects
+Route::get('tv/blacksails', function(){ return Redirect::to('tv/1'); });
+Route::get('tv/davinci', function(){ return Redirect::to('tv/2'); });
+Route::get('tv/got', function(){ return Redirect::to('tv/3'); });
+Route::get('tv/spartacus', function(){ return Redirect::to('tv/4'); });
+Route::get('tv/vikings', function(){ return Redirect::to('tv/5'); });
+
 // TV Shows routes
 Route::any('tv/watch/{epis_id}', 'TVController@anyWatchEpisode');
 Route::any('tv/{show_id}/{sezn_id}', 'TVController@anySeason');
