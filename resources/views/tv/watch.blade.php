@@ -13,11 +13,14 @@
 	}
 </style>
 
-<h1>{{ $episode['title'] }}</h1>
+<h1>Episode {{ $episode['epis_num'] }} : {{ $episode['title'] }}</h1>
 
-<video id="vid" style="width: 100%; height: 100%;" controls>
-  <source src="{{ $episode['path'] }}" type="video/mp4">
-</video>
+<section class="flex one">
+	<video id="vid" style="width: 100%; height: 100%;" controls>
+	  <source src="{{ $episode['path'] }}" type="video/mp4">
+	</video>
+</section>
+
 
 <div class="flex one two-1200">
 	<div class="nine-tenth"><p>{{ $episode['show_name'] }} - {{ $episode['sezn_title'] }}</p></div>
