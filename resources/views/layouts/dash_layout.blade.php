@@ -31,7 +31,7 @@
     <nav>
         <a href="dashboard" class="brand">
             <img class="logo" src="images/favicon.png">
-            <span>HMS</span>
+            <span>HMS Lite</span>
         </a>
 
         <!-- mobile menu -->

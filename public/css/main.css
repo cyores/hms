@@ -1,16 +1,11 @@
 /*  
 	COLORS:
-	main grey:        #E1E2E1
-	primary blue:     #03A9F4
-	secondary yellow: #F4C703
-	tertiary red:     #F40331
+	primary:   #1A237E
+	secondary: #F4511E
+	body grey: #333333
 
-	medium blue: #0398db;
+	light primary: #232FA8
 
-	dark blue:  #007AC1
-	light blue: #2EBCFC
-	dark yellow: #BD9700
-	light yellow: #FFFA50
 */
 
 /*  
@@ -29,20 +24,24 @@ main {
 	min-width: 100%;
 	min-height: 100%;
 	margin: 0;
-	background-color: #E1E2E1;
+	background-color: #636463;
+	color: #EBEBEB;
 	z-index: 5;
 }
 
 nav {
-	background-color: #03A9F4;
+	background-color: #1A237E;
 }
+.brand *, .pseudo.button { color: #EBEBEB; }
+
+input { color: #333; }
 
 /* BOX SHADOW */
 .shadow { box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1); }
 .shadow:hover { box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08); }
 
 /* BACKGROUNDS */
-.bg-lt-blue { background-color: #2EBCFC; }
+.bg-lt-blue { background-color: #232FA8; }
 .bg-red     { background-color: #F40331; }
 .bg-yellow  { background-color: #F4C703; }
 .bg-blue    { background-color: #03A9F4; }
@@ -52,12 +51,12 @@ nav {
 
 /* BUTTONS */
 .default {
-	background-color: #F4C703;
+	background-color: #F4511E;
 	color: #000;
 }
 
 .btn-a {
-	background-color: #F4C703 !important;
+	background-color: #F4511E !important;
 	color: #000 !important;
 }
 
@@ -118,7 +117,7 @@ ol {
 	margin-bottom: 20px;
 	list-style: none;
 	/*background-color: #007AC1;*/
-	background-color: #F4C703;
+	background-color: #F4511E;
 	border-radius: 4px;
 }
 .breadcrumb > .active {
