@@ -3,36 +3,7 @@
 
 @section('content')
 
-<section class="flex one">
-    <h2>Quick Links</h2>    
-</section>
-
-<section class="flex one four-1200">
-    
-    <div class="full fourth-1200" onclick="navTo('/tv')" style="cursor: pointer;">
-        <article class="card card-blue">
-            <header class="text-center no-border">TV</header>
-            <footer class="text-center">5 TV Shows!</footer>
-        </article>
-    </div>
-
-    <div class="full fourth-1200" onclick="navTo('/movies')" style="cursor: pointer;">
-        <article class="card card-red">
-            <header class="text-center no-border" style="color: #F3F3F3;">Movies</header>
-            <footer class="text-center" style="color: #F3F3F3;">More than 30 movies!</footer>
-        </article>
-    </div>
-     
-</section>
-
-<section class="flex one marginT30 marginB30">
-    <p class="text-center">
-        <b>Some things don't require an account (like TV and Movies), but creating an account gives you access to more features!</b>
-    </p>
-    <p class="text-center"><b>Login or signup below.</b></p>
-</section>
-
-<section class="flex one two-1200">
+<section class="flex one two-1200 marginT100">
 
 <div>
     <article class="card">

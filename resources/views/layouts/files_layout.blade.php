@@ -11,14 +11,12 @@
     <link href="{{ asset('css/picnic.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/helper-classes.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/mediaelementplayer.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">  
 
     <!-- Scripts -->
-    <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/mediaelement-and-player.min.js') }}"></script>    
+    <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>  
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {
@@ -39,11 +37,8 @@
         <label for="bmenub" class="burger pseudo button">menu</label>
 
         <div class="menu"> 
-            <a href="/movies" class="pseudo button">Movies</a>
-            <a href="/tv" class="pseudo button">TV Shows</a>
             @if(Auth::check())
                 <a href="/pictures" class="pseudo button">Pictures</a>
-                <a href="http://localhost" class="pseudo button">Lap Times</a>
                 <a href="/files" class="pseudo button">Files</a>
                 <a href="/account" class="pseudo button">Account</a>
                 <a href="/logout" class="button btn-a">Logout</a>
