@@ -41,7 +41,7 @@ class TVController extends Controller
             $path = str_replace('E:/', '', $epis->path);
             $return_array['episode'] = array(
                                         'title'      => $epis->epis_title,
-                                        'path'       => $path,
+                                        'path'       => '/media' . '/' . $path,
                                         'count'      => $epis->count,
                                         'sezn_title' => $epis->sezn_title,
                                         'show_name'  => $epis->show_name

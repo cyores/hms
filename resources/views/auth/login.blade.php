@@ -24,7 +24,7 @@
      
 </section>
 
-<p class="marginT50 text-center"><b>Some things don't require an account, but creating an account gives you access to more features!</b></p>
+<p class="marginT50 text-center"><b>Some things don't require an account (like TV and Movies), but creating an account gives you access to more features!</b></p>
 <p class="marginB50 text-center"><b>Login or signup below.</b></p>
 
 <section class="flex one two-1200">

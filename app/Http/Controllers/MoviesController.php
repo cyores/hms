@@ -26,7 +26,7 @@ class MoviesController extends Controller
     		$path = str_replace('E:/', '', $movie->path);
     		$return_array['movie'] = array(
     									'title'  => $movie->title,
-    									'path'   => $path,
+    									'path'   => '/media' . '/' . $path,
     									'count'  => $movie->count,
     									'rating' => $movie->rating
     									);
