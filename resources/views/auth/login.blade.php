@@ -3,8 +3,9 @@
 
 @section('content')
 
-
-<h2>Quick Links</h2>
+<section class="flex one">
+    <h2>Quick Links</h2>    
+</section>
 
 <section class="flex one four-1200">
     
@@ -24,8 +25,12 @@
      
 </section>
 
-<p class="marginT50 text-center"><b>Some things don't require an account (like TV and Movies), but creating an account gives you access to more features!</b></p>
-<p class="marginB50 text-center"><b>Login or signup below.</b></p>
+<section class="flex one marginT30 marginB30">
+    <p class="text-center">
+        <b>Some things don't require an account (like TV and Movies), but creating an account gives you access to more features!</b>
+    </p>
+    <p class="text-center"><b>Login or signup below.</b></p>
+</section>
 
 <section class="flex one two-1200">
 
@@ -37,7 +42,7 @@
                 {{ csrf_field() }}
 
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input id="email" type="email" class="marginB10" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
+                    <input id="email" type="email" class="marginB10" name="email" placeholder="Email" value="{{ old('email') }}" required>
                 </div>
 
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
