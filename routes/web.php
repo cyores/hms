@@ -21,6 +21,9 @@ Route::group(['middleware' => ['auth']], function(){
 	// Pictures routes
 	Route::any('pictures', 'PictureController@index');
 
+	// Locker routes
+	Route::any('locker', 'LockerController@index');
+
 });
 
 // Route::get('/', function () {

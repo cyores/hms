@@ -75,4 +75,4 @@
 
 /* Icons */
 .icon { max-height: 20px; cursor: pointer; }
-.icon-plus { background: url("images/icon.plus.svg"); }
+.icon-plus { background: url("/images/icons/plus.svg"); background-repeat: no-repeat;}

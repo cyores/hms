@@ -97,6 +97,7 @@ input { color: #333; }
 .card-blue   { border: none; background-color: #03A9F4 !important; }
 .card-yellow { border: none; background-color: #F4C703 !important; }
 .card-red    { border: none; background-color: #F40331 !important; }
+.card-orange { border: none; background-color: #F4511E !important; }
 
 .event {
 	padding: 10px;

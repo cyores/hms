@@ -58,13 +58,13 @@
 
             <div class="action-btn-group">
                 <label for="modal">
-                    <div class="action-btn bg-yellow" onclick="folderModal()">
+                    <div class="action-btn bg-orange" onclick="folderModal()">
                         <img class="img-responsive" src="/images/icons/new-folder.svg">
                     </div>
                 </label>
 
                 <label for="modal">
-                    <div class="action-btn bg-yellow" onclick="uploadModal()">
+                    <div class="action-btn bg-orange" onclick="uploadModal()">
                         <img class="img-responsive" src="/images/icons/upload.svg">
                     </div>
                 </label>
