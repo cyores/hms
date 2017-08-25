@@ -74,8 +74,10 @@ input { color: #333; }
 	margin-top: 20px;
 	padding: 10px;
 	cursor: pointer;
-	box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+	box-shadow: 0 0 transparent inset, 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+	transition: all 0.3s;
 }
+.action-btn:hover { box-shadow: inset 0 0 0 99em rgba(255,255,255,0.2); }
 
 /* Grid Size Additions */
 .tenth { width: 10%; }
@@ -94,10 +96,10 @@ input { color: #333; }
 
 /* Cards */
 .card-tp     { border: none; background-color: rgba(0,0,0,0) !important; }
-.card-blue   { border: none; background-color: #03A9F4 !important; }
+.card-blue   { border: none; background-color: #232FA8 !important; }
 .card-yellow { border: none; background-color: #F4C703 !important; }
 .card-red    { border: none; background-color: #F40331 !important; }
-.card-orange { border: none; background-color: #F4511E !important; }
+.card-orange { border: none; background-color: #F4511E !important; color: #000 !important; }
 
 .event {
 	padding: 10px;

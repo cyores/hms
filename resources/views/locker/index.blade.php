@@ -94,7 +94,7 @@ function search() {
             else {
                 for (var i = 0; i < data.length; i++) {
                     result = data[i];
-                    $('#results').append(buildCard(result['service'], result['email'], result['username'], result['password']));
+                    $('#results').append(buildCard(result['service'], result['email'], result['username'], result['password'], result['entry_id']));
                 } 
             }
             
@@ -110,18 +110,62 @@ function search() {
 
 }
 
-function buildCard(service, email, username, password) {
-    var card =  '<div class="third">'
+function buildCard(service, email, username, password, id) {
+    var card =  '<div class="third" id="card_'+id+'">'
                     +'<article class="card card-orange">'
-                        +'<header>' + service + '</header>'
-                        +'<footer>'
-                            +'<p><b>email:</b>' + email + '</p>'
-                            +'<p><b>user:</b>' + username + '</p>'
-                            +'<p><b>password:</b>' + password + '</p>'
+                        +'<header>' 
+                            +'<p class="mdText">'+ service 
+                            +'<label for="modal"><img class="pull-right" src="/images/icons/delete.svg" onclick="deleteModal('+id+');"></label>'
+                            +'<a href="/locker/edit/'+id+'"><img class="pull-right marginR5" src="/images/icons/edit.svg"></a>'
+                            +'</p>'
+                        +'</header>'
+                        +'<footer class="mdText">'
+                            +'<p><b>Email: </b>' + email + '<img class="pull-right" src="/images/icons/copy.svg"></p>'
+                            +'<p><b>User: </b>' + username + '<img class="pull-right" src="/images/icons/copy.svg"></p>'
+                            +'<p><b>Password: </b>' + password + '<img class="pull-right" src="/images/icons/copy.svg"></p>'
                         +'</footer>'
                     +'</article>'
                 +'</div>';
 
     return card;
 }
+
+function deleteModal(id) {
+    var body =   '<form onsubmit="deleteEntry('+id+'); return false;">'
+                    +'<p class="mdText">Are you sure you want to delete this?</p>'
+                    +'<button class="default marginT10" type="submit">Delete</button>'
+                +'</form>';
+
+    $('#model_title').html('Confirmation');
+    $('#model_body').html(body);
+    $('#model_footer').html('');
+}
+
+function deleteEntry(id) {
+    console.log('Deleting entry');
+    var formData = new FormData();
+    formData.append('entry_id', id);
+
+    $.ajax({
+        url: '/locker/delete',
+        type: 'POST',
+        xhr: function() {
+            var mxXhr = $.ajaxSettings.xhr();
+            return mxXhr;
+        },
+        success: function() {
+            console.log('Successfully deleted');
+            $(".modal").hide();
+            $("#card_" + id).remove();            
+        },
+        error: function() {
+            console.log('There was an error');
+        },
+        // Actual data
+        data: formData,
+        // Options to tell jQuery not to process data or worry about content-type.
+        cache: false, contentType: false, processData: false
+    });
+}
+
 </script>

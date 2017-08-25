@@ -35,7 +35,7 @@ class LockerController extends Controller
 
     	$return_array = array();
 
-    	$get_results = DB::select('SELECT `service`, `email`, `username`, `password` FROM `locker` WHERE `user_id` = ? AND `service` LIKE ?',
+    	$get_results = DB::select('SELECT `service`, `email`, `username`, `password`, `id` FROM `locker` WHERE `user_id` = ? AND `service` LIKE ?',
     								array($user_id, $query . '%'));
 
     	foreach ($get_results as $key => $value) {
@@ -43,10 +43,38 @@ class LockerController extends Controller
     										'service'  => $value->service,
     										'email'    => $value->email,
     										'username' => $value->username,
-    										'password' => decrypt($value->password)
+    										'password' => decrypt($value->password),
+    										'entry_id' => $value->id
     										));
     	}
 
     	return json_encode($return_array);
+    }
+
+    public function postDelete(Request $request) {
+    	$user_id = Auth::id();
+    	$entry_id = $request->input('entry_id');
+
+    	$d = DB::delete('DELETE FROM `locker` WHERE `user_id` = ? AND `id` = ?', array($user_id, $entry_id));
+
+    }
+
+    public function anyEditIndex($entry_id) {
+    	$return_array['entry'] = Locker::getEntry($entry_id);
+
+    	return View::make('locker.edit', $return_array);
+
+    }
+
+    public function postApplyChanges(Request $request) {
+    	$user_id = Auth::id();
+    	$service   = $request->input('service');
+    	$email     = $request->input('email');
+    	$username  = $request->input('username');
+    	$password  = encrypt($request->input('password'));
+    	$entry_id  = $request->input('entry_id');
+
+    	$u = DB::update('UPDATE `locker` SET `service` = ?, `email` = ?, `username` = ?, `password` = ? WHERE `id` = ?',
+    						array($service, $email, $username, $password, $entry_id));
     }
 }
