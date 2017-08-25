@@ -43,7 +43,8 @@ input { color: #333; }
 /* BACKGROUNDS */
 .bg-lt-blue { background-color: #232FA8; }
 .bg-red     { background-color: #F40331; }
-.bg-yellow  { background-color: #F4C703; }
+.bg-orange  { background-color: #F4511E; color: #333; }
+.bg-yellow  { background-color: #F4C703; color: #333; }
 .bg-blue    { background-color: #03A9F4; }
 .bg-white   { background-color: #FFFFFF; }
 .bg-lt-grey { background-color: #777777; }

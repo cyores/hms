@@ -21,7 +21,6 @@ Route::group(['middleware' => ['auth']], function(){
 	// Pictures routes
 	Route::any('pictures', 'PictureController@index');
 
-
 });
 
 // Route::get('/', function () {
