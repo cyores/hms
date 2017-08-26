@@ -74,7 +74,7 @@ class LockerController extends Controller
     	$password  = encrypt($request->input('password'));
     	$entry_id  = $request->input('entry_id');
 
-    	$u = DB::update('UPDATE `locker` SET `service` = ?, `email` = ?, `username` = ?, `password` = ? WHERE `id` = ?',
+    	$u = DB::update('UPDATE `locker` SET `service` = ?, `email` = ?, `username` = ?, `password` = ?, `updated_at` = NOW() WHERE `id` = ?',
     						array($service, $email, $username, $password, $entry_id));
     }
 }

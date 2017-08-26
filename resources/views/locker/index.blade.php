@@ -3,6 +3,11 @@
 
 @section('content')
 
+<style type="text/css">
+    tr:nth-child(even) { background-color: rgba(0,0,0,0); }
+    td > img { cursor: pointer; }
+</style>
+
 <h1>Locker</h1>
 
 <input class="full" id="search" type="search" placeholder="Search" onkeyup="search()" autofocus>
@@ -19,9 +24,8 @@
     </label>
 </div>
 
-@endsection
-
 <script type="text/javascript">
+
 function newEntryModal() {
     var body =   '<form class="pad30" onsubmit="newEntry(); return false;">'
                     +'<input id="servi" class="marginT10" type="text" placeholder="Service" required>'
@@ -119,10 +123,26 @@ function buildCard(service, email, username, password, id) {
                             +'<a href="/locker/edit/'+id+'"><img class="pull-right marginR5" src="/images/icons/edit.svg"></a>'
                             +'</p>'
                         +'</header>'
-                        +'<footer class="mdText">'
-                            +'<p><b>Email: </b>' + email + '<img class="pull-right" src="/images/icons/copy.svg"></p>'
-                            +'<p><b>User: </b>' + username + '<img class="pull-right" src="/images/icons/copy.svg"></p>'
-                            +'<p><b>Password: </b>' + password + '<img class="pull-right" src="/images/icons/copy.svg"></p>'
+                        +'<footer >'
+                            +'<table>'
+                                +'<tbody>'
+                                    +'<tr>'
+                                        +'<td><p><b>Email</b></p></td>'
+                                        +'<td><p id="clip-email-'+id+'">'+email+'</p></td>'
+                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-email-'+id+'\');"></td>'
+                                    +'</tr>'
+                                    +'<tr>'
+                                       +'<td><p><b>Username</b></p></td>'
+                                        +'<td><p id="clip-usr-'+id+'">'+username+'</p></td>'
+                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-usr-'+id+'\');"></td>'
+                                    +'</tr>'
+                                    +'<tr>'
+                                        +'<td><p><b>Password</b></p></td>'
+                                        +'<td><p id="clip-pswd-'+id+'">'+password+'</p></td>'
+                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-pswd-'+id+'\');"></td>'
+                                    +'</tr>'
+                                +'</tbody>'
+                            +'</table>'
                         +'</footer>'
                     +'</article>'
                 +'</div>';
@@ -168,4 +188,19 @@ function deleteEntry(id) {
     });
 }
 
+function copy(id) {
+    var contents = $('#' + id).text();
+
+    var aux = document.createElement("input");
+    aux.setAttribute("value", contents);
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand("copy");
+    document.body.removeChild(aux);
+
+    console.log('Copied:', contents, id);
+}
+
 </script>
+
+@endsection

@@ -5,6 +5,7 @@
 
 <style type="text/css">
     tr:nth-child(even) { background-color: rgba(0,0,0,0); }
+    .copy-btn { cursor: pointer; }
 </style>
 
 <h1>Edit {{ $entry['service'] }}</h1>
@@ -13,39 +14,36 @@
 
     <div class="full half-1200">
         <article class="card card-orange">
-            <header>Current</header>
+            <header class="mdText">Current</header>
             <footer>
                 <table class="full">
                     <tbody>
                         <tr>
                             <td><p class="mdText"><b>Service</b></p></td>
                             <td><p class="mdText">{{ $entry['service'] }}</p></td>
-                            <td><img class="pull-right" src="/images/icons/copy.svg"></td>
                         </tr>
                         <tr>
                             <td><p class="mdText"><b>Email</b></p></td>
-                            <td><p class="mdText">{{ $entry['email'] }}</p></td>
-                            <td><img class="pull-right" src="/images/icons/copy.svg"></td>
+                            <td><p id="clip-email" class="mdText">{{ $entry['email'] }}</p></td>
+                            <td><a data-clip="clip-email" class="copy-btn"><img class="pull-right" src="/images/icons/copy.svg"></a></td>
                         </tr>
                         <tr>
                             <td><p class="mdText"><b>Username</b></p></td>
-                            <td><p class="mdText">{{ $entry['username'] }}</p></td>
-                            <td><img class="pull-right" src="/images/icons/copy.svg"></td>
+                            <td><p id="clip-usr" class="mdText">{{ $entry['username'] }}</p></td>
+                            <td><a data-clip="clip-usr" class="copy-btn"><img class="pull-right" src="/images/icons/copy.svg"></a></td>
                         </tr>
                         <tr>
                             <td><p class="mdText"><b>Password</b></p></td>
-                            <td><p class="mdText">{{ $entry['password'] }}</p></td>
-                            <td><img class="pull-right" src="/images/icons/copy.svg"></td>
+                            <td><p id="clip-pswd" class="mdText">{{ $entry['password'] }}</p></td>
+                            <td><a data-clip="clip-pswd" class="copy-btn"><img class="pull-right" src="/images/icons/copy.svg"></a></td>
                         </tr>
                         <tr>
                             <td><p class="mdText"><b>Created At</b></p></td>
                             <td><p class="mdText">{{ $entry['created_at'] }}</p></td>
-                            <td><img class="pull-right" src="/images/icons/copy.svg"></td>
                         </tr>
                         <tr>
                             <td><p class="mdText"><b>Last Updated</b></p></td>
                             <td><p class="mdText">{{ $entry['updated_at'] }}</p></td>
-                            <td><img class="pull-right" src="/images/icons/copy.svg"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -55,7 +53,7 @@
 
     <div class="full half-1200">
         <article class="card card-blue">
-            <header>Make Changes</header>
+            <header class="mdText">Make Changes</header>
             <footer>
                 <table class="full">
                     <tbody>
@@ -97,8 +95,6 @@
 
 var entry_id = {!! $entry['entry_id'] !!}
 
-console.log('Entry ID:', entry_id);
-
 function showSubmit() {
     $('#row-submit').fadeIn(750);
 }
@@ -132,6 +128,20 @@ function applyChanges() {
         cache: false, contentType: false, processData: false
     });
 }
+
+$('.copy-btn').on('click', function() {
+    var getId = $(this).attr('data-clip');
+    var contents = $('#' + getId).text();
+
+    var aux = document.createElement("input");
+    aux.setAttribute("value", contents);
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand("copy");
+    document.body.removeChild(aux);
+
+    console.log('Copied:', contents, getId);
+});
 
 </script>
 @endsection
