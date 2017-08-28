@@ -19,6 +19,8 @@ class Files extends Model
         $dir  = 'backup' . '/' . $user_id . '/';
         $base = 'backup' . '/' . $path;
 
+        if(!$d->exists('/' . $base)) $d->makeDirectory($base);
+
         $folders = $d->directories('/' . $base);
         $files   = $d->files('/' . $base);
 
