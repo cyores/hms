@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Utility;
 
 use Auth;
-use DB;
-use Carbon\Carbon;
 use Storage;
 
 class Files extends Model
