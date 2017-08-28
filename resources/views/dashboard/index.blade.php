@@ -11,8 +11,12 @@
 
     <div class="full two-third-1200">
         <article class="card card-tp">
-            <header class="center-text bot-bor"><h3>News</h3></header>
-            <footer><p>Coming soon . . .<p></footer>
+            <header class="bot-bor"><h3>Updates</h3></header>
+            <footer>
+                <div class="flex three">
+                    @include('dashboard.partials.weather')
+                </div>
+            </footer>
         </article>
     </div>
 
