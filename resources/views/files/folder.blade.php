@@ -34,12 +34,13 @@
 		console.log('File path', path);
 		var body =   '<p class="marginB20">Upload files to '+pathparts[pathparts.length - 1]+'</p>'
 					+'<form class="marginB10" id="formFiles" onsubmit="uploadFiles()">'
-						+'<input class="marginB10" id="files" type="file" multiple required>'
+						+'<input id="files" class="marginB10"  type="file" multiple required>'
 						+'<button type="submit" class="default">Submit</button>'
 					+'</form>'
 
 		$('#model_title').html('Upload Files');
         $('#model_body').html(body);
+        $('#model_footer').html('');
 	}
 
 	function uploadFiles() {
@@ -54,6 +55,7 @@
 		else {
 			formData.append('files_exist', 'true');
 			var numFiles = $('#files')[0].files.length;
+			console.log(numFiles);
 			for (var i = 0; i < numFiles; i++) {
 				formData.append('file_' + i, $('#files')[0].files[i]);
 			}
@@ -62,15 +64,16 @@
 		$.ajax({
             url: '/files/upload',
             type: 'POST',
+            dataType: 'json',
             xhr: function() {
                 var mxXhr = $.ajaxSettings.xhr();
                 return mxXhr;
             },
-            success: function() {
-                console.log('Successfully uploaded files');
+            success: function(data) {
+                console.log('Successfully uploaded object');
             },
-            error: function() {
-                console.log('There was an error uploading files');
+            error: function(data) {
+                console.log('There was an error uploading');
             },
             // Actual data
             data: formData,

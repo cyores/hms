@@ -8,22 +8,11 @@ use App\Models\Files;
 use App\Models\Utility;
 
 use Auth;
-use Carbon\Carbon;
-use DB;
-use Route;
+use Storage;
 use View;
 
 class FileController extends Controller
 {
-	private $dir;
-	private $vhost;
-
-	public function __construct() {
-        $user_id = Auth::id();
-		$this->dir = 'Z:/HMS/';
-		$this->vhost = 'files.hms.dev';
-	}
-
     public function anyOpenFolder($path = '') {
     	$user_id = Auth::id();
         $user_name = Auth::user()->name;
@@ -32,11 +21,11 @@ class FileController extends Controller
 
         if($path == '') {
             $path = $user_id;
-            $return_array['objects'] = Utility::getThingsInDir($this->dir . $path);
+            $return_array['objects'] = Files::getUsersFiles($path);
         }    	
         else {
             $path = $user_id . '/' . $path;
-            $return_array['objects'] = Utility::getThingsInDir($this->dir . $path);
+            $return_array['objects'] = Files::getUsersFiles($path);
         }   	
 
         $return_array['user_name'] = $user_name;
@@ -45,40 +34,48 @@ class FileController extends Controller
     	return View::make('files.folder', $return_array);
     }
 
-    public function postUploadFiles(Request $request) {
-    	$path = $this->dir . $request->input("path") . '/';
-    	$path = str_replace(Auth::user()->name, Auth::id(), $path);
-
-    	$files_exist = $request->input("files_exist");
-
-    	if($files_exist == 'true') {
-    		foreach ($_FILES as $key => $file) {
-    			$file_name = $file["name"];
-    			$file_type = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-    			$file_file = $file["tmp_name"];
-
-    			$target_file = $path . $file_name;
-
-    			move_uploaded_file($file_file, $target_file);
-    		}
-    	}
-    }
-
     public function postDelete(Request $request) {
-        $path = Auth::id() . $request->input('path');
-        if(strpos($path, '.') !== false) {
-            unlink($this->dir . $path);
-        }  
+        $path = $request->input('path');
+        if(strpos($path, '.') !== false){
+            Files::deleteFile($path);
+        }
         else {
-            rmdir($this->dir . $path);
-        }     
+            Files::deleteDir($path);
+        }
     }
 
     public function postNewFolder(Request $request) {
-        $path = $this->dir . $request->input('path');
+        $path = $request->input('path');
         $path = str_replace(Auth::user()->name, Auth::id(), $path);
         $name = $request->input('name');
-        mkdir($path . '/' . $name);
+        Files::makeDir('/' . $path . '/' . $name);
+    }
+
+    public function postUploadFiles(Request $request) {
+        $d = Storage::disk('public');
+
+        $path = $request->input('path');
+        $path = str_replace(Auth::user()->name, Auth::id(), $path);
+        
+        $files_exist = $request->input("files_exist");
+
+        $return_array['files_added'] = 'no';
+
+        if($files_exist == 'true') {
+            foreach ($_FILES as $key => $file) {
+                $return_array['files_added'] = 'yes';
+
+                $file_name = $file["name"];
+                $file_type = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+                $file_file = $file["tmp_name"];
+
+                $target_path = 'backup' . '/' . $path . '/' . $file_name;
+                
+                $d->put($target_path, file_get_contents($file_file));
+            }
+        }
+
+        return json_encode($return_array);
     }
 
 }
