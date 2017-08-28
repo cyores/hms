@@ -3,10 +3,6 @@
 
 @section('content')
 
-<style type="text/css">
-    .ui-timepicker-wrapper { z-index: 9999999;  width: 150px; }
-</style>
-
 <div class="flex tabs two">
 
     <input id='tab-1' type='radio' name='tabgroupB' checked />

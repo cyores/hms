@@ -8,10 +8,10 @@
 .text-right  { text-align: right; }
 
 /* Text Sizes */
-.hgText { font-size: 2.0em; line-height: 1.8em; }
-.bgText { font-size: 1.5em; line-height: 1.3em; }
+.hgText { font-size: 2.0em; line-height: 1.4em; }
+.bgText { font-size: 1.7em; line-height: 1.2em; }
 .mdText { font-size: 1.2em; line-height: 1.0em; }
-.smText { font-size: 1.0em; line-height: 1.0em; }
+.smText { font-size: 1.0em; line-height: 0.9em; }
 .tyText { font-size: 0.8em; line-height: 0.7em; }
 
 /* Margin Classes */
@@ -75,4 +75,4 @@
 
 /* Icons */
 .icon { max-height: 20px; cursor: pointer; }
-.icon-plus { background: url("images/icon.plus.svg"); }
+.icon-plus { background: url("/images/icons/plus.svg"); background-repeat: no-repeat;}

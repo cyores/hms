@@ -1,10 +1,10 @@
 <div class="">
-@if(!empty($events))
-	@foreach($events as $key => $event)
+@if(!empty($upcoming_events))
+	@foreach($upcoming_events as $key => $event)
 		@if($event['public'] == 'Y')
-			<div class="event marginB20 bg-yellow">
+			<div class="event marginB20 bg-yellow shadow">
 		@else
-			<div class="event marginB20 bg-red" style="color: #F3F3F3;">
+			<div class="event marginB20 bg-orange shadow">
 		@endif		
 			<p class="mdText"><b>{{ $event['title'] }}</b></p>
 			<p class="smText">{{ $event['desc'] }}</p>
