@@ -31,7 +31,7 @@
 	}
 
 	function uploadModal() {
-		console.log('File path', path);
+		// console.log('File path', path);
 		var body =   '<p class="marginB20">Upload files to '+pathparts[pathparts.length - 1]+'</p>'
 					+'<form class="marginB10" id="formFiles" onsubmit="uploadFiles()">'
 						+'<input id="files" class="marginB10"  type="file" multiple required>'

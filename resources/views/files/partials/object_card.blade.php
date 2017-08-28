@@ -21,7 +21,7 @@
 
 <script type="text/javascript">
 function delModal(path) {
-	console.log(path);
+	// console.log(path);
 	var body =   '<p class="marginB20">Are you sure you want to delete this?</p>';
 				// +'<label for="model" class="button default marginT10" onclick="delObj(\''+path+'\')">Confirm</label>';
 
