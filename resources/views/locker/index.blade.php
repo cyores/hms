@@ -27,7 +27,7 @@
 <script type="text/javascript">
 
 function newEntryModal() {
-    var body =   '<form class="pad30" onsubmit="newEntry(); return false;">'
+    var body =   '<form class="pad30" onsubmit="newEntry();">'
                     +'<input id="servi" class="marginT10" type="text" placeholder="Service" required>'
                     +'<input id="email" class="marginT10" type="email" placeholder="Email">'
                     +'<input id="usern" class="marginT10" type="text" placeholder="Username">'
@@ -58,7 +58,7 @@ function newEntry() {
         },
         success: function() {
             console.log('Successfully added new entry');
-            $(".modal").hide();
+            // $(".modal").hide();
         },
         error: function() {
             console.log('There was an error adding new entry');
