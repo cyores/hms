@@ -87,7 +87,7 @@ input { color: #333; }
 .off-15 { margin-left: 15%; }
 
 /* Misc */
-.bot-bor { border-bottom: 1px solid #bbb !important; }
+.bot-bor { border-bottom: 1px solid #333 !important; }
 .border { border: 2px solid #777; }
 .no-border { border: none !important; }
 

@@ -15,28 +15,25 @@
 
 <div class="full two-third-1200">
 	<article class="card card-secondary shadow">
-		<header class="no- text-center bgText">Forecast</header>
+		<header class="no- text-center bgText" style=" border-color: #333333;">Forecast</header>
 		<footer>
-		<table width="100%">
-			<tbody>
-				<tr>
-				@foreach($weather['fore'] as $key => $value)
-					<td class="text-center" style="border: 1px solid black">{{ $value['time'] }}</td>
-				@endforeach
-				</tr>
-				<tr>
-				@foreach($weather['fore'] as $key => $value)
-					<td class="text-center" style="border: 1px solid black">{{ $value['temp'] }} C</td>
-				@endforeach
-				</tr>
-				<tr>
-				@foreach($weather['fore'] as $key => $value)
-					<td class="text-center" style="border: 1px solid black">{{ $value['cond'] }}</td>
-				@endforeach
-				</tr>
-			</tbody>
-		</table>
-		
+			<div class="padL5">
+				<div class="flex five text-center">
+					@foreach($weather['fore'] as $key => $value)
+						<div class="fifth"><span>{{ $value['time']  }}</span></div>
+					@endforeach
+				</div>		
+				<div class="flex five text-center" style="background-color: rgba(0,0,0,0.0);">
+					@foreach($weather['fore'] as $key => $value)
+						<div class="fifth"><span>{{ $value['temp']  }} C</span></div>
+					@endforeach
+				</div>
+				<div class="flex five text-center">
+					@foreach($weather['fore'] as $key => $value)
+						<div class="ffith"><span>{{ $value['cond']  }}</span></div>
+					@endforeach
+				</div>
+			</div>
 		</footer>
 	</article>
 </div>
