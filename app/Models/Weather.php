@@ -48,7 +48,7 @@ class Weather extends Model
 
             $s = DB::select('SELECT `type` FROM `weather` WHERE `type` = ?', array('current'));
             if(empty($s)) {
-                $i =DB::insert('INSERT INTO `weather` (`type`,`city`,`temp`,`humidity`,`title`,`desc`,`icon`) VALUES (?,?,?,?,?,?,?)',
+                $i = DB::insert('INSERT INTO `weather` (`type`,`city`,`temp`,`humidity`,`title`,`desc`,`icon`) VALUES (?,?,?,?,?,?,?)',
                                 array('current', $return_array['city'], $return_array['temp'], $return_array['humidity'],
                                                 $return_array['title'], $return_array['desc'], $return_array['icon']));
             }
@@ -73,12 +73,29 @@ class Weather extends Model
     }
 
     public static function getForecast() {
+        $get_weather = DB::select('SELECT * FROM `weather` WHERE `type` LIKE ?', array('forecast_'));
+
+        $return_array = array();
+
+        $now = Carbon::now(new DateTimeZone('America/Toronto'));
+        $stamp = new Carbon($get_weather[0]->updated_at, 'America/Toronto');
+        $diff = $now->diffInMinutes($stamp);
+
+        if($diff < 120) {
+            foreach ($get_weather as $key => $value) {
+                array_push($return_array, array(
+                                                'time' => $value->hour,
+                                                'temp' => $value->temp,
+                                                'cond' => $value->title
+                                                ));
+            }
+            return $return_array;
+        }
+
         $key = env('OPEN_WEATHER_API_KEY', 'key');
         $vaughan = 6173577;
         $london = 6058560;
         $call_url = 'http://api.openweathermap.org/data/2.5/forecast?id=' . $vaughan . "&units=metric" . '&appid=' . $key;
-
-        $return_array = array();
 
         try {
             $response = json_decode(file_get_contents($call_url));
@@ -89,6 +106,15 @@ class Weather extends Model
                 $temp = round($value->main->temp);
                 $cond = $value->weather[0]->main;
                 $cond = str_replace('Clouds', 'Cloudy', $cond);
+
+                $s = DB::select('SELECT `type` FROM `weather` WHERE `type` LIKE ?', array('forecast_'));
+                if(empty($s)) {
+                    $i = DB::insert('INSERT INTO `weather` (`type`,`hour`,`temp`,`title`) VALUES (?,?,?,?)', array('forecast' . $key, $time, $temp, $cond));    
+                }
+                else {
+                    $u = DB::update('UPDATE `weather` SET `hour` = ?, `temp` = ?, `title` = ?, `updated_at` = NOW() WHERE `type` = ?',
+                                array($time, $temp, $cond, 'forecast' . $key));
+                }
 
                 array_push($return_array, array(
                                                 'time' => $time,

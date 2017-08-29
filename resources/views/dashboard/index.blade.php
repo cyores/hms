@@ -26,11 +26,11 @@
 
     <div class="full third-1200">
         <article class="card card-tp">
-            <header class="flex two bot-bor">
-                <h3 class="blk-text">Upcoming Events</h3>
-                <label for="modal"><span class="pull-right bgText icon blk-text" onclick="showAddEvent();"><b>&#65291;</b></span></label>
-            </header>
             <footer>
+                <div class="flex two">
+                    <div class="two-third"><h2 class="blk-text">Upcoming Events</h2></div>
+                    <div class="third"><label for="modal"><h2 class="pull-right blk-text" onclick="showAddEvent();"><b>&#65291;</b></h2></label></div>
+                </div>
                 @include('dashboard.partials.upcoming_events')
             </footer>
         </article>

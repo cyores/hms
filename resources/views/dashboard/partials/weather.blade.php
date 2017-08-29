@@ -6,7 +6,7 @@
 	<article class="card card-primary shadow">
 		<header class="no- text-center bgText">Current</header>
 		<footer>
-			<p class="text-center bgText">{{ $weather['curr']['temp'] }} C</p>
+			<p class="text-center bgText">{{ $weather['curr']['temp'] }}&deg;</p>
 			<p class="text-center mdText">Humidity: {{ $weather['curr']['humidity'] }}%</p>
 			<p class="text-center mdText">{{ $weather['curr']['desc'] }}</p>
 		</footer>
@@ -20,12 +20,12 @@
 			<div class="padL5">
 				<div class="flex five text-center">
 					@foreach($weather['fore'] as $key => $value)
-						<div class="fifth"><span>{{ $value['time']  }}</span></div>
+						<div class="fifth"><span>{{ $value['time']  }}:00</span></div>
 					@endforeach
 				</div>		
 				<div class="flex five text-center" style="background-color: rgba(0,0,0,0.0);">
 					@foreach($weather['fore'] as $key => $value)
-						<div class="fifth"><span>{{ $value['temp']  }} C</span></div>
+						<div class="fifth"><span>{{ $value['temp']  }}&deg;</span></div>
 					@endforeach
 				</div>
 				<div class="flex five text-center">
