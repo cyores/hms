@@ -18,7 +18,7 @@
 
 <div class="action-btn-group">
     <label for="modal">
-        <div class="action-btn bg-orange" onclick="newEntryModal()">
+        <div class="action-btn bg-yellow" onclick="newEntryModal()">
             <img class="img-responsive" src="/images/icons/plus.svg">
         </div>
     </label>
@@ -116,7 +116,7 @@ function search() {
 
 function buildCard(service, email, username, password, id) {
     var card =  '<div class="third" id="card_'+id+'">'
-                    +'<article class="card card-orange">'
+                    +'<article class="card card-yellow">'
                         +'<header>' 
                             +'<p class="mdText">'+ service 
                             +'<label for="modal"><img class="pull-right" src="/images/icons/delete.svg" onclick="deleteModal('+id+');"></label>'

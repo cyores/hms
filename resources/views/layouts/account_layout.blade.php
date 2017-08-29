@@ -44,6 +44,7 @@
                 <a href="/pictures" class="pseudo button">Pictures</a>
                 <a href="http://localhost" class="pseudo button">Lap Times</a>
                 <a href="/files" class="pseudo button">Files</a>
+                <a href="/locker" class="pseudo button">Locker</a>
                 <a href="/account" class="pseudo button">Account</a>
                 <a href="/logout" class="button btn-a">Logout</a>
             @endif
