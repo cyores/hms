@@ -43,12 +43,14 @@ input { color: #333; }
 /* BACKGROUNDS */
 .bg-lt-blue { background-color: #232FA8; }
 .bg-red     { background-color: #F40331; }
+.bg-green   { background-color: #2E7D32; }
 .bg-orange  { background-color: #F4511E; color: #333; }
 .bg-yellow  { background-color: #F4C703; color: #333; }
 .bg-blue    { background-color: #03A9F4; }
 .bg-white   { background-color: #FFFFFF; }
 .bg-lt-grey { background-color: #777777; }
 .bg-dk-grey { background-color: #333333; }
+
 
 /* BUTTONS */
 .default {
@@ -95,11 +97,15 @@ input { color: #333; }
 .transparent { opacity: 0.5; }
 
 /* Cards */
-.card-tp     { border: none; background-color: rgba(0,0,0,0) !important; }
-.card-blue   { border: none; background-color: #232FA8 !important; }
-.card-yellow { border: none; background-color: #F4C703 !important; }
-.card-red    { border: none; background-color: #F40331 !important; }
-.card-orange { border: none; background-color: #F4511E !important; color: #000 !important; }
+.card-tp      { border: none; background-color: rgba(0,0,0,0) !important; }
+.card-lt-grey { border: none; background-color: rgba(255,255,255,0.25) !important; }
+.card-blue    { border: none; background-color: #232FA8 !important; }
+.card-yellow  { border: none; background-color: #F4C703 !important; color: #000 !important; }
+.card-red     { border: none; background-color: #F40331 !important; }
+.card-orange  { border: none; background-color: #F4511E !important; color: #000 !important; }
+.card-green   { border: none; background-color: #4CAF50 !important; color: #000 !important; }
+.card-purple  { border: none; background-color: #6A1B9A !important; }
+
 
 .event {
 	padding: 10px;

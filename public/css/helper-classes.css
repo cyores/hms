@@ -11,8 +11,13 @@
 .hgText { font-size: 2.0em; line-height: 1.4em; }
 .bgText { font-size: 1.7em; line-height: 1.2em; }
 .mdText { font-size: 1.2em; line-height: 1.0em; }
-.smText { font-size: 1.0em; line-height: 0.9em; }
-.tyText { font-size: 0.8em; line-height: 0.7em; }
+.smText { font-size: 1.0em; line-height: 1.0em; }
+.tyText { font-size: 0.8em; line-height: 1.0em; }
+
+/* Text Colors */
+.blk-text { color: #000; }
+.gry-text { color: #333; }
+.wht-text { color: #fff; }
 
 /* Margin Classes */
 .margin0 { margin: 0; }

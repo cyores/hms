@@ -43,7 +43,7 @@ class Weather extends Model
             $return_array['temp']     = round($response->main->temp);
             $return_array['humidity'] = $response->main->humidity;
             $return_array['title']    = $response->weather[0]->main;
-            $return_array['desc']     = $response->weather[0]->description;
+            $return_array['desc']     = ucfirst($response->weather[0]->description);
             $return_array['icon']     = $response->weather[0]->icon;
 
             $s = DB::select('SELECT `type` FROM `weather` WHERE `type` = ?', array('current'));
@@ -78,23 +78,28 @@ class Weather extends Model
         $london = 6058560;
         $call_url = 'http://api.openweathermap.org/data/2.5/forecast?id=' . $vaughan . "&units=metric" . '&appid=' . $key;
 
+        $return_array = array();
+
         try {
             $response = json_decode(file_get_contents($call_url));
 
-            $return_array['city']     = $response->name;
-            $return_array['temp']     = round($response->main->temp);
-            $return_array['humidity'] = $response->main->humidity;
-            $return_array['title']    = $response->weather[0]->main;
-            $return_array['desc']     = $response->weather[0]->description;
-            $return_array['icon']     = $response->weather[0]->icon;
+            foreach ($response->list as $key => $value) {
+                if($key > 7) break;
+                $time = (new Carbon($value->dt_txt, 'America/Toronto'))->subHours(4)->hour;
+                $temp = round($value->main->temp);
+                $cond = $value->weather[0]->main;
+                $cond = str_replace('Clouds', 'Cloudy', $cond);
+
+                array_push($return_array, array(
+                                                'time' => $time,
+                                                'temp' => $temp,
+                                                'cond' => $cond
+                                                ));
+
+            }
 
         } catch(Exception $e) {
-            $return_array['city']     = 'Could not connect';
-            $return_array['temp']     = 'null';
-            $return_array['humidity'] = 'null';
-            $return_array['title']    = 'null';
-            $return_array['desc']     = 'null';
-            $return_array['icon']     = 'null';
+
         }
         
 

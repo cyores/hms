@@ -21,6 +21,7 @@ class DashboardController extends BaseController
         $return_array['user'] = Dashboard::getUserInfo();
     	$return_array['upcoming_events'] = Dashboard::getUpcomingEvents();
         $return_array['weather']['curr'] = Weather::getCurrentInfo();
+        $return_array['weather']['fore'] = Weather::getForecast();
         
     	return View::make('dashboard.index', $return_array);
     }

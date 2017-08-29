@@ -10,11 +10,15 @@
 <div class="flex one two-1200 marginT20">
 
     <div class="full two-third-1200">
-        <article class="card card-tp">
-            <header class="bot-bor"><h3>Updates</h3></header>
+        <article class="card" style="border: none; background-color: #E3E4E3 !important;">
             <footer>
-                <div class="flex three">
+                <h2 class="text-center blk-text">Weather</h2>
+                <div class="flex one three-1200">
                     @include('dashboard.partials.weather')
+                </div>
+                <h2 class="text-center blk-text">News</h2>
+                <div class="flex one">
+                    @include('dashboard.partials.news')
                 </div>
             </footer>
         </article>
