@@ -1,5 +1,9 @@
+<style type="text/css">
+	
+</style>
+
 <div class="full third-1200">
-	<article class="card card-green shadow">
+	<article class="card card-primary shadow">
 		<header class="no- text-center bgText">Current</header>
 		<footer>
 			<p class="text-center bgText">{{ $weather['curr']['temp'] }} C</p>
@@ -10,24 +14,24 @@
 </div>
 
 <div class="full two-third-1200">
-	<article class="card card-purple shadow">
+	<article class="card card-secondary shadow">
 		<header class="no- text-center bgText">Forecast</header>
 		<footer>
-		<table>
+		<table width="100%">
 			<tbody>
 				<tr>
 				@foreach($weather['fore'] as $key => $value)
-					<td>{{ $value['time'] }}</td>
+					<td class="text-center" style="border: 1px solid black">{{ $value['time'] }}</td>
 				@endforeach
 				</tr>
 				<tr>
 				@foreach($weather['fore'] as $key => $value)
-					<td>{{ $value['temp'] }} C</td>
+					<td class="text-center" style="border: 1px solid black">{{ $value['temp'] }} C</td>
 				@endforeach
 				</tr>
 				<tr>
 				@foreach($weather['fore'] as $key => $value)
-					<td>{{ $value['cond'] }}</td>
+					<td class="text-center" style="border: 1px solid black">{{ $value['cond'] }}</td>
 				@endforeach
 				</tr>
 			</tbody>

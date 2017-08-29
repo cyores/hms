@@ -53,7 +53,7 @@
             @yield('content')
         </section>
         <section class="marginT100">
-            <div class="bg-dk-grey" style="height: 400px">
+            <div class="bg-primary" style="height: 400px">
             @yield('footer')
         </section>
     </main>

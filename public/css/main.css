@@ -1,8 +1,9 @@
 /*  
 	COLORS:
-	primary:   #1A237E
-	secondary: #F4511E
-	body grey: #333333
+	primary:   #333333
+	secondary: #1DE9B6
+	third:     #E91D50
+	body:      #9E9E9E
 
 	light primary: #232FA8
 
@@ -24,13 +25,13 @@ main {
 	min-width: 100%;
 	min-height: 100%;
 	margin: 0;
-	background-color: #636463;
-	color: #EBEBEB;
+	background-color: #9E9E9E;
+	color: #EEEEEE;
 	z-index: 5;
 }
 
 nav {
-	background-color: #1A237E;
+	background-color: #333333;
 }
 .brand *, .pseudo.button { color: #EBEBEB; }
 
@@ -41,26 +42,22 @@ input { color: #333; }
 .shadow:hover { box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08); }
 
 /* BACKGROUNDS */
-.bg-lt-blue { background-color: #232FA8; }
-.bg-red     { background-color: #F40331; }
-.bg-green   { background-color: #2E7D32; }
-.bg-orange  { background-color: #F4511E; color: #333; }
-.bg-yellow  { background-color: #F4C703; color: #333; }
-.bg-blue    { background-color: #03A9F4; }
-.bg-white   { background-color: #FFFFFF; }
-.bg-lt-grey { background-color: #777777; }
-.bg-dk-grey { background-color: #333333; }
+.bg-primary   { background-color: #333333; }
+.bg-secondary { background-color: #1DE9B6;  color: #333333; }
+.bg-third     { background-color: #E91D50; }
+.bg-purple    { background-color: #B61DE9; }
+.bg-gold      { background-color: #E9B61D;  color: #333333; }
 
 
 /* BUTTONS */
 .default {
-	background-color: #F4511E;
-	color: #000;
+	background-color: #1DE9B6;
+	color: #333333;
 }
 
 .btn-a {
-	background-color: #F4511E !important;
-	color: #000 !important;
+	background-color: #1DE9B6 !important;
+	color: #333333 !important;
 }
 
 .action-btn-group {
@@ -98,14 +95,12 @@ input { color: #333; }
 
 /* Cards */
 .card-tp      { border: none; background-color: rgba(0,0,0,0) !important; }
+.card-primary   { border: none; background-color: #333333 !important; }
+.card-secondary { border: none; background-color: #1DE9B6 !important;  color: #333333; }
+.card-third     { border: none; background-color: #E91D50 !important; }
+.card-purple    { border: none; background-color: #B61DE9 !important; }
+.card-gold      { border: none; background-color: #E9B61D !important; color: #333333; }
 .card-lt-grey { border: none; background-color: rgba(255,255,255,0.25) !important; }
-.card-blue    { border: none; background-color: #232FA8 !important; }
-.card-yellow  { border: none; background-color: #F4C703 !important; color: #000 !important; }
-.card-red     { border: none; background-color: #F40331 !important; }
-.card-orange  { border: none; background-color: #F4511E !important; color: #000 !important; }
-.card-green   { border: none; background-color: #4CAF50 !important; color: #000 !important; }
-.card-purple  { border: none; background-color: #6A1B9A !important; }
-
 
 .event {
 	padding: 10px;

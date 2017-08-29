@@ -1,5 +1,5 @@
 <div class="full">
-	<article class="card card-blue shadow">
+	<article class="card card-third shadow">
 		<header class="mdText">Shocking Headline is Shocking</header>
 		<footer>
 			<p class="smText">This will be the first couple of sentences. An article preview if the news API will allow it . . . </p>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="full">
-	<article class="card card-green shadow">
+	<article class="card card-secondary shadow">
 		<header class="mdText">What if the headline is long and not capitlized with puncutation?</header>
 		<footer>
 			<p class="smText">This will be the first couple of sentences. An article preview if the news API will allow it . . . </p>
@@ -21,7 +21,7 @@
 </div>
 
 <div class="full">
-	<article class="card card-orange shadow">
+	<article class="card card-purple shadow">
 		<header class="mdText">Headline</header>
 		<footer>
 			<p class="smText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

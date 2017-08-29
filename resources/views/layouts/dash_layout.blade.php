@@ -48,7 +48,7 @@
     </nav>
 
     <main>
-        <div class="flex one two-1200 bg-lt-blue">
+        <div class="flex one two-1200 bg-secondary">
             <div class="full half-1200 pad0"><p class="pull-left bgText marginL20">Welcome, {{ $user['name'] }}</p></div>
             <div class="none half-1200 pad0"><p class="pull-right bgText marginR20">{{ $user['date'] }}</p></div>
         </div>

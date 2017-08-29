@@ -47,7 +47,7 @@
     </nav>
 
     <main>
-        <div class="flex one bg-lt-blue marginB30">
+        <div class="flex one bg-secondary marginB30">
             <div class="container pad0">
                 <p class="bgText">{{ $user['name'] }}'s Account</p>
             </div>
