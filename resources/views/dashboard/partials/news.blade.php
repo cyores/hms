@@ -1,39 +1,25 @@
-<div class="full">
-	<article class="card card-third shadow">
-		<header class="mdText">Shocking Headline is Shocking</header>
-		<footer>
-			<p class="smText">This will be the first couple of sentences. An article preview if the news API will allow it . . . </p>
-			<p class="tyText">Source - Author</p>
-			<p class="tyText">2017-09-23 08:00</p>
-		</footer>
-	</article>
-</div>
 
-<div class="full">
-	<article class="card card-secondary shadow">
-		<header class="mdText">What if the headline is long and not capitlized with puncutation?</header>
-		<footer>
-			<p class="smText">This will be the first couple of sentences. An article preview if the news API will allow it . . . </p>
-			<p class="tyText">Source - Author</p>
-			<p class="tyText">2017-09-23 08:00</p>
-		</footer>
-	</article>
-</div>
-
-<div class="full">
-	<article class="card card-purple shadow">
-		<header class="mdText">Headline</header>
-		<footer>
-			<p class="smText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit.</p>
-			<p class="tyText">Source - Author</p>
-			<p class="tyText">2017-09-23 08:00</p>
-		</footer>
-	</article>
-</div>
-
+@foreach($news as $key => $value)
+<a class="link" href="{{ $value['link'] }}" target="new">
+	<div class="full">
+		<article class="card card-primary shadow">
+			<header class="mdText">{{ $value['title'] }}</header>
+			<footer>
+				<div class="flex two">
+					<div class="fifth">
+						<img class="img-responsive" src="{{ $value['image'] }}">
+					</div>
+					<div class="four-fifth">
+						<p class="smText">{{ $value['desc'] }}</p>
+						<p class="tyText">{{ $value['source'] }} - {{ $value['author'] }}</p>
+						<p class="tyText">{{ $value['published'] }}</p>
+					</div>
+				</div>
+			</footer>
+		</article>
+	</div>
+</a>
+@endforeach
 
 <script type="text/javascript">
 	

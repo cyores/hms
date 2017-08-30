@@ -16,9 +16,9 @@
                 <div class="flex one three-1200">
                     @include('dashboard.partials.weather')
                 </div>
-                <h2 class="text-center blk-text"></h2>
+                <h2 class="text-center blk-text">News</h2>
                 <div class="flex one">
-                    {{-- @include('dashboard.partials.news') --}}
+                    @include('dashboard.partials.news')
                 </div>
             </footer>
         </article>
