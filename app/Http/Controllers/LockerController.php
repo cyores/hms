@@ -19,11 +19,11 @@ class LockerController extends Controller
 
     public function postNewEntry(Request $request) {
     	$user_id   = Auth::id();
-    	$service   = $request->input('service');
-    	$email     = $request->input('email');
-    	$username  = $request->input('username');
+    	$service   = encrypt($request->input('service'));
+    	$email     = encrypt($request->input('email'));
+    	$username  = encrypt($request->input('username'));
     	$password  = encrypt($request->input('password'));
-    	$notes     = $request->input('notes');
+    	$notes     = encrypt($request->input('notes'));
 
     	$i = DB::insert('INSERT INTO `locker` (`user_id`, `service`, `email`, `username`, `password`, `notes`) VALUES (?,?,?,?,?,?)', 
     						array($user_id, $service, $email, $username, $password, $notes));
@@ -35,18 +35,20 @@ class LockerController extends Controller
 
     	$return_array = array();
 
-    	$get_results = DB::select('SELECT `service`, `email`, `username`, `password`, `id` FROM `locker` WHERE `user_id` = ? AND `service` LIKE ?',
-    								array($user_id, $query . '%'));
+    	$get_results = DB::select('SELECT `service`, `email`, `username`, `password`, `id` FROM `locker` WHERE `user_id` = ?',
+    								array($user_id));
 
-    	foreach ($get_results as $key => $value) {
-    		array_push($return_array, array(
-    										'service'  => $value->service,
-    										'email'    => $value->email,
-    										'username' => $value->username,
-    										'password' => decrypt($value->password),
-    										'entry_id' => $value->id
-    										));
-    	}
+        foreach ($get_results as $key => $value) {
+            if(strpos(strtolower(decrypt($value->service)), strtolower($query)) !== false) {
+                array_push($return_array, array(
+                                            'service'  => decrypt($value->service),
+                                            'email'    => decrypt($value->email),
+                                            'username' => decrypt($value->username),
+                                            'password' => decrypt($value->password),
+                                            'entry_id' => $value->id
+                                            ));
+            }
+        }
 
     	return json_encode($return_array);
     }
@@ -68,11 +70,11 @@ class LockerController extends Controller
 
     public function postApplyChanges(Request $request) {
     	$user_id = Auth::id();
-    	$service   = $request->input('service');
-    	$email     = $request->input('email');
-    	$username  = $request->input('username');
+    	$service   = encrypt($request->input('service'));
+    	$email     = encrypt($request->input('email'));
+    	$username  = encrypt($request->input('username'));
     	$password  = encrypt($request->input('password'));
-        $notes     = $request->input('notes');
+        $notes     = encrypt($request->input('notes'));
     	$entry_id  = $request->input('entry_id');
 
     	$u = DB::update('UPDATE `locker` SET `service` = ?, `email` = ?, `username` = ?, `password` = ?, `notes` = ?, `updated_at` = NOW() WHERE `id` = ?',

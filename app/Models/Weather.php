@@ -101,7 +101,7 @@ class Weather extends Model
             $response = json_decode(file_get_contents($call_url));
 
             foreach ($response->list as $key => $value) {
-                if($key > 4) break;
+                if($key >= 5) break;
                 $time = (new Carbon($value->dt_txt, 'America/Toronto'))->subHours(4)->hour;
                 $temp = round($value->main->temp);
                 $cond = $value->weather[0]->main;

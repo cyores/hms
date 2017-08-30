@@ -82,7 +82,7 @@
                         </tr>
                         <tr>
                             <td><p class="mdText"><b>Notes</b></p></td>
-                            <td><textarea id="notes" value="{{ $entry['notes'] }}" onclick="showSubmit()">{{ $entry['notes'] }}</textarea></td>
+                            <td><textarea id="notes" rows="5" value="{{ $entry['notes'] }}" onclick="showSubmit()">{{ $entry['notes'] }}</textarea></td>
                         </tr>
                         <tr>
                             <td><p class="mdText"><b>Created At</b></p></td>
