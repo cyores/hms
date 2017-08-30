@@ -8,7 +8,7 @@
     .copy-btn { cursor: pointer; }
 </style>
 
-<h1>Edit {{ $entry['service'] }}</h1>
+<h1 class="blk-text">Edit {{ $entry['service'] }}</h1>
 
 <div class="flex one two-1200" style="min-height: 500px;">
 
@@ -37,6 +37,13 @@
                             <td><p id="clip-pswd" class="mdText">{{ $entry['password'] }}</p></td>
                             <td><a data-clip="clip-pswd" class="copy-btn"><img class="pull-right" src="/images/icons/copyWhite.svg"></a></td>
                         </tr>
+                        @if($entry['notes'] != null)
+                        <tr>
+                            <td><p class="mdText"><b>Notes</b></p></td>
+                            <td><textarea id="clip-notes" class="mdText blk-text" rows="10" disabled="true">{{ $entry['notes'] }}</textarea></td>
+                            <td><a data-clip="clip-notes" class="copy-btn"><img class="pull-right" src="/images/icons/copyWhite.svg"></a></td>
+                        </tr>
+                        @endif
                         <tr>
                             <td><p class="mdText"><b>Created At</b></p></td>
                             <td><p class="mdText">{{ $entry['created_at'] }}</p></td>
@@ -74,6 +81,10 @@
                             <td><input id="password" type="text" value="{{ $entry['password'] }}" onclick="showSubmit()"></td>
                         </tr>
                         <tr>
+                            <td><p class="mdText"><b>Notes</b></p></td>
+                            <td><textarea id="notes" value="{{ $entry['notes'] }}" onclick="showSubmit()">{{ $entry['notes'] }}</textarea></td>
+                        </tr>
+                        <tr>
                             <td><p class="mdText"><b>Created At</b></p></td>
                             <td><p class="mdText">{{ $entry['created_at'] }}</p></td>
                         </tr>
@@ -82,7 +93,7 @@
                             <td><p class="mdText">{{ $entry['updated_at'] }}</p></td>
                         </tr>
                         <tr id="row-submit" style="display: none;">
-                            <td colspan="2" class="pad30"><button class="full default" onclick="applyChanges()">Submit Changes</button></td>
+                            <td colspan="2" class="pad30"><button class="full btn-third" onclick="applyChanges()">Submit Changes</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -106,6 +117,7 @@ function applyChanges() {
     formData.append('email', $('#email').val());
     formData.append('username', $('#user').val());
     formData.append('password', $('#password').val());
+    formData.append('notes', $('#notes').val());
     formData.append('entry_id', entry_id);
 
     $.ajax({

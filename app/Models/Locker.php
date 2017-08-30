@@ -21,6 +21,7 @@ class Locker extends Model
     		$return_array['email']      = $value->email;
     		$return_array['username']   = $value->username;
     		$return_array['password']   = decrypt($value->password);
+            $return_array['notes']      = $value->notes;
     		$return_array['created_at'] = (new Carbon($value->created_at))->toDayDateTimeString();
     		$return_array['updated_at'] = (new Carbon($value->updated_at))->toDayDateTimeString();;
     	}

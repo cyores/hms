@@ -54,6 +54,9 @@ input { color: #333; }
 	background-color: #1DE9B6;
 	color: #333333;
 }
+.btn-third {
+	background-color: #E91D50;
+}
 
 .btn-a {
 	background-color: #1DE9B6 !important;

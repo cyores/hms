@@ -28,10 +28,11 @@
 
 function newEntryModal() {
     var body =   '<form class="pad30" onsubmit="newEntry();">'
-                    +'<input id="servi" class="marginT10" type="text" placeholder="Service" required>'
+                    +'<input id="servi" class="marginT10" type="text" placeholder="Service" autocomplete="off" required>'
                     +'<input id="email" class="marginT10" type="email" placeholder="Email">'
                     +'<input id="usern" class="marginT10" type="text" placeholder="Username">'
-                    +'<input id="passw" class="marginT10" type="text" placeholder="Password" required>'
+                    +'<input id="passw" class="marginT10" type="text" placeholder="Password" autocomplete="off" required>'
+                    +'<textarea id="notes" class="marginT10"></textarea>'
                     +'<button class="default marginT10" type="submit">Submit</button>'
                 +'</form>';
 
@@ -48,6 +49,7 @@ function newEntry() {
     formData.append('email', $('#email').val());
     formData.append('username', $('#usern').val());
     formData.append('password', $('#passw').val());
+    formData.append('notes', $('#notes').val());
 
     $.ajax({
         url: '/locker/newentry',

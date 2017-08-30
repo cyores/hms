@@ -23,10 +23,10 @@ class LockerController extends Controller
     	$email     = $request->input('email');
     	$username  = $request->input('username');
     	$password  = encrypt($request->input('password'));
-    	// $password  = $request->input('password');
+    	$notes     = $request->input('notes');
 
-    	$i = DB::insert('INSERT INTO `locker` (`user_id`, `service`, `email`, `username`, `password`) VALUES (?,?,?,?,?)', 
-    						array($user_id, $service, $email, $username, $password));
+    	$i = DB::insert('INSERT INTO `locker` (`user_id`, `service`, `email`, `username`, `password`, `notes`) VALUES (?,?,?,?,?,?)', 
+    						array($user_id, $service, $email, $username, $password, $notes));
     }
 
     public function postSearch(Request $request) {
@@ -72,9 +72,10 @@ class LockerController extends Controller
     	$email     = $request->input('email');
     	$username  = $request->input('username');
     	$password  = encrypt($request->input('password'));
+        $notes     = $request->input('notes');
     	$entry_id  = $request->input('entry_id');
 
-    	$u = DB::update('UPDATE `locker` SET `service` = ?, `email` = ?, `username` = ?, `password` = ?, `updated_at` = NOW() WHERE `id` = ?',
-    						array($service, $email, $username, $password, $entry_id));
+    	$u = DB::update('UPDATE `locker` SET `service` = ?, `email` = ?, `username` = ?, `password` = ?, `notes` = ?, `updated_at` = NOW() WHERE `id` = ?',
+    						array($service, $email, $username, $password, $notes, $entry_id));
     }
 }
