@@ -39,7 +39,8 @@ class LockerController extends Controller
     								array($user_id));
 
         foreach ($get_results as $key => $value) {
-            if(strpos(strtolower(decrypt($value->service)), strtolower($query)) !== false) {
+            $pos = strpos(strtolower(decrypt($value->service)), strtolower($query));
+            if($pos !== false && $pos === 0) {
                 array_push($return_array, array(
                                             'service'  => decrypt($value->service),
                                             'email'    => decrypt($value->email),

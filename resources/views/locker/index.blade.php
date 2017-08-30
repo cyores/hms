@@ -32,7 +32,7 @@ function newEntryModal() {
                     +'<input id="email" class="marginT10" type="email" placeholder="Email">'
                     +'<input id="usern" class="marginT10" type="text" placeholder="Username">'
                     +'<input id="passw" class="marginT10" type="text" placeholder="Password" autocomplete="off" required>'
-                    +'<textarea id="notes" class="marginT10"></textarea>'
+                    +'<textarea id="notes" class="marginT10" rows="5" placeholder="Notes"></textarea>'
                     +'<button class="default marginT10" type="submit">Submit</button>'
                 +'</form>';
 
@@ -60,7 +60,6 @@ function newEntry() {
         },
         success: function() {
             console.log('Successfully added new entry');
-            // $(".modal").hide();
         },
         error: function() {
             console.log('There was an error adding new entry');
@@ -117,37 +116,40 @@ function search() {
 }
 
 function buildCard(service, email, username, password, id) {
+    var rnum = Math.floor(Math.random() * 2) + 1 ;
+    var color = '';
+    switch(rnum) {
+        case 1: color = 'card-third'; break;
+        case 2: color = 'card-secondary'; break;
+    }
     var card =  '<div class="third" id="card_'+id+'">'
-                    +'<article class="card card-secondary">'
+                    +'<article class="card '+color+'">'
                         +'<header>' 
                             +'<p class="mdText">'+ service 
                             +'<label for="modal"><img class="pull-right" src="/images/icons/delete.svg" onclick="deleteModal('+id+');"></label>'
                             +'<a href="/locker/edit/'+id+'"><img class="pull-right marginR5" src="/images/icons/edit.svg"></a>'
                             +'</p>'
                         +'</header>'
-                        +'<footer >'
-                            +'<table>'
-                                +'<tbody>'
-                                    +'<tr>'
-                                        +'<td><p><b>Email</b></p></td>'
-                                        +'<td><p id="clip-email-'+id+'">'+email+'</p></td>'
-                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-email-'+id+'\');"></td>'
-                                    +'</tr>'
-                                    +'<tr>'
-                                       +'<td><p><b>Username</b></p></td>'
-                                        +'<td><p id="clip-usr-'+id+'">'+username+'</p></td>'
-                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-usr-'+id+'\');"></td>'
-                                    +'</tr>'
-                                    +'<tr>'
-                                        +'<td><p><b>Password</b></p></td>'
-                                        +'<td><p id="clip-pswd-'+id+'">'+password+'</p></td>'
-                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-pswd-'+id+'\');"></td>'
-                                    +'</tr>'
-                                +'</tbody>'
-                            +'</table>'
+                        +'<footer>'
+                            +'<div class="flex three">'
+                                +'<div class="third"><p><b>Email</b></p></div>'
+                                +'<div class="third"><p id="clip-email-'+id+'">'+email+'</p></div>'
+                                +'<div class="third"><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-email-'+id+'\');"></div>'
+                            +'</div>'
+                            +'<div class="flex three">'
+                                +'<div class="third"><p><b>Username</b></p></div>'
+                                +'<div class="third"><p id="clip-usr-'+id+'">'+username+'</p></div>'
+                                +'<div class="third"><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-usr-'+id+'\');"></div>'
+                            +'</div>'
+                            +'<div class="flex three">'
+                                +'<div class="third"><p><b>Password</b></p></div>'
+                                +'<div class="third"><p id="clip-pswd-'+id+'">'+password+'</p></div>'
+                                +'<div class="third"><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-pswd-'+id+'\');"></div>'
+                            +'</div>'
                         +'</footer>'
                     +'</article>'
                 +'</div>';
+
 
     return card;
 }
