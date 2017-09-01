@@ -107,7 +107,7 @@ class Weather extends Model
                 $cond = $value->weather[0]->main;
                 $cond = str_replace('Clouds', 'Cloudy', $cond);
 
-                $s = DB::select('SELECT `type` FROM `weather` WHERE `type` LIKE ?', array('forecast_'));
+                $s = DB::select('SELECT `type` FROM `weather` WHERE `type` LIKE ?', array('forecast' . $key));
                 if(empty($s)) {
                     $i = DB::insert('INSERT INTO `weather` (`type`,`hour`,`temp`,`title`) VALUES (?,?,?,?)', array('forecast' . $key, $time, $temp, $cond));    
                 }

@@ -2,7 +2,7 @@
 @foreach($news as $key => $value)
 <a class="link" href="{{ $value['link'] }}" target="new">
 	<div class="full">
-		<article class="card card-primary shadow">
+		<article class="card card-blue shadow">
 			<header class="mdText">{{ $value['title'] }}</header>
 			<footer>
 				<div class="flex two">

@@ -3,7 +3,7 @@
 </style>
 
 <div class="full third-1200">
-	<article class="card card-primary shadow">
+	<article class="card card-blue shadow">
 		<header class="no- text-center bgText">Current</header>
 		<footer>
 			<p class="text-center bgText">{{ $weather['curr']['temp'] }}&deg;</p>
@@ -14,7 +14,7 @@
 </div>
 
 <div class="full two-third-1200">
-	<article class="card card-secondary shadow">
+	<article class="card card-yellow shadow">
 		<header class="no- text-center bgText" style=" border-color: #333333;">Forecast</header>
 		<footer>
 			<div class="padL5">
