@@ -54,10 +54,10 @@ function newEntry() {
     $.ajax({
         url: '/locker/newentry',
         type: 'POST',
-        xhr: function() {
-            var mxXhr = $.ajaxSettings.xhr();
-            return mxXhr;
-        },
+        // xhr: function() {
+        //     var mxXhr = $.ajaxSettings.xhr();
+        //     return mxXhr;
+        // },
         success: function() {
             console.log('Successfully added new entry');
         },
