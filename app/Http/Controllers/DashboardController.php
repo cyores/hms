@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 // use App;
 use App\Models\Dashboard;
+use App\Models\News;
 use App\Models\Weather;
 use Auth;
 use Carbon\Carbon;
@@ -21,6 +22,8 @@ class DashboardController extends BaseController
         $return_array['user'] = Dashboard::getUserInfo();
     	$return_array['upcoming_events'] = Dashboard::getUpcomingEvents();
         $return_array['weather']['curr'] = Weather::getCurrentInfo();
+        $return_array['weather']['fore'] = Weather::getForecast();
+        $return_array['news'] = News::getNews();
         
     	return View::make('dashboard.index', $return_array);
     }

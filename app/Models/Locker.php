@@ -17,10 +17,11 @@ class Locker extends Model
 
     	foreach ($get_entry as $key => $value) {
     		$return_array['entry_id']   = $value->id;
-    		$return_array['service']    = $value->service;
-    		$return_array['email']      = $value->email;
-    		$return_array['username']   = $value->username;
+    		$return_array['service']    = decrypt($value->service);
+    		$return_array['email']      = decrypt($value->email);
+    		$return_array['username']   = decrypt($value->username);
     		$return_array['password']   = decrypt($value->password);
+            $return_array['notes']      = decrypt($value->notes);
     		$return_array['created_at'] = (new Carbon($value->created_at))->toDayDateTimeString();
     		$return_array['updated_at'] = (new Carbon($value->updated_at))->toDayDateTimeString();;
     	}
@@ -28,7 +29,4 @@ class Locker extends Model
     	return $return_array;
     }
 
-    public static function changeEntry($entry_id) {
-    	
-    }
 }

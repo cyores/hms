@@ -27,11 +27,12 @@
 <script type="text/javascript">
 
 function newEntryModal() {
-    var body =   '<form class="pad30" onsubmit="newEntry(); return false;">'
-                    +'<input id="servi" class="marginT10" type="text" placeholder="Service" required>'
+    var body =   '<form class="pad30" onsubmit="newEntry();">'
+                    +'<input id="servi" class="marginT10" type="text" placeholder="Service" autocomplete="off" required>'
                     +'<input id="email" class="marginT10" type="email" placeholder="Email">'
                     +'<input id="usern" class="marginT10" type="text" placeholder="Username">'
-                    +'<input id="passw" class="marginT10" type="text" placeholder="Password" required>'
+                    +'<input id="passw" class="marginT10" type="text" placeholder="Password" autocomplete="off" required>'
+                    +'<textarea id="notes" class="marginT10" rows="5" placeholder="Notes"></textarea>'
                     +'<button class="default marginT10" type="submit">Submit</button>'
                 +'</form>';
 
@@ -48,6 +49,7 @@ function newEntry() {
     formData.append('email', $('#email').val());
     formData.append('username', $('#usern').val());
     formData.append('password', $('#passw').val());
+    formData.append('notes', $('#notes').val());
 
     $.ajax({
         url: '/locker/newentry',
@@ -58,7 +60,6 @@ function newEntry() {
         },
         success: function() {
             console.log('Successfully added new entry');
-            $(".modal").hide();
         },
         error: function() {
             console.log('There was an error adding new entry');
@@ -115,6 +116,12 @@ function search() {
 }
 
 function buildCard(service, email, username, password, id) {
+    var rnum = Math.floor(Math.random() * 2) + 1 ;
+    var color = '';
+    switch(rnum) {
+        case 1: color = 'card-yellow'; break;
+        case 2: color = 'card-red'; break;
+    }
     var card =  '<div class="third" id="card_'+id+'">'
                     +'<article class="card card-yellow">'
                         +'<header>' 
@@ -123,29 +130,26 @@ function buildCard(service, email, username, password, id) {
                             +'<a href="/locker/edit/'+id+'"><img class="pull-right marginR5" src="/images/icons/edit.svg"></a>'
                             +'</p>'
                         +'</header>'
-                        +'<footer >'
-                            +'<table>'
-                                +'<tbody>'
-                                    +'<tr>'
-                                        +'<td><p><b>Email</b></p></td>'
-                                        +'<td><p id="clip-email-'+id+'">'+email+'</p></td>'
-                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-email-'+id+'\');"></td>'
-                                    +'</tr>'
-                                    +'<tr>'
-                                       +'<td><p><b>Username</b></p></td>'
-                                        +'<td><p id="clip-usr-'+id+'">'+username+'</p></td>'
-                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-usr-'+id+'\');"></td>'
-                                    +'</tr>'
-                                    +'<tr>'
-                                        +'<td><p><b>Password</b></p></td>'
-                                        +'<td><p id="clip-pswd-'+id+'">'+password+'</p></td>'
-                                        +'<td><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-pswd-'+id+'\');"></td>'
-                                    +'</tr>'
-                                +'</tbody>'
-                            +'</table>'
+                        +'<footer>'
+                            +'<div class="flex three">'
+                                +'<div class="third"><p><b>Email</b></p></div>'
+                                +'<div class="third"><p id="clip-email-'+id+'">'+email+'</p></div>'
+                                +'<div class="third" style="cursor: pointer;"><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-email-'+id+'\');"></a></div>'
+                            +'</div>'
+                            +'<div class="flex three">'
+                                +'<div class="third"><p><b>Username</b></p></div>'
+                                +'<div class="third"><p id="clip-usr-'+id+'">'+username+'</p></div>'
+                                +'<div class="third" style="cursor: pointer;"><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-usr-'+id+'\');"></div>'
+                            +'</div>'
+                            +'<div class="flex three">'
+                                +'<div class="third"><p><b>Password</b></p></div>'
+                                +'<div class="third"><p id="clip-pswd-'+id+'">'+password+'</p></div>'
+                                +'<div class="third" style="cursor: pointer;"><img class="pull-right" src="/images/icons/copy.svg" onclick="copy(\'clip-pswd-'+id+'\');"></div>'
+                            +'</div>'
                         +'</footer>'
                     +'</article>'
                 +'</div>';
+
 
     return card;
 }

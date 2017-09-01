@@ -10,11 +10,15 @@
 <div class="flex one two-1200 marginT20">
 
     <div class="full two-third-1200">
-        <article class="card card-tp">
-            <header class="center-text bot-bor"><h3>Updates</h3></header>
+        <article class="card card-tp" >
             <footer>
-                 <div class="flex three">
+                <h2 class="text-center blk-text">Weather</h2>
+                <div class="flex one three-1200">
                     @include('dashboard.partials.weather')
+                </div>
+                <h2 class="text-center blk-text">News</h2>
+                <div class="flex one">
+                    @include('dashboard.partials.news')
                 </div>
             </footer>
         </article>
@@ -22,11 +26,11 @@
 
     <div class="full third-1200">
         <article class="card card-tp">
-            <header class="flex two bot-bor">
-                <h3>Upcoming Events</h3>
-                <label for="modal"><span class="pull-right bgText icon" onclick="showAddEvent();"><b>&#65291;</b></span></label>
-            </header>
             <footer>
+                <div class="flex two">
+                    <div class="two-third"><h2 class="blk-text">Upcoming Events</h2></div>
+                    <div class="third"><label for="modal"><h2 class="pull-right blk-text" onclick="showAddEvent();"><b>&#65291;</b></h2></label></div>
+                </div>
                 @include('dashboard.partials.upcoming_events')
             </footer>
         </article>

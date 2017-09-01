@@ -4,7 +4,7 @@
 @section('content')
 <section class="flex one two-1200 marginT100">
 <div>
-    <article class="card">
+    <article class="card card-primary">
         <header class="center-text">Register</header>
         <footer>
             <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="marginB10">
-                    <button type="submit">Register</button>
+                    <button class="default" type="submit">Register</button>
                 </div>
 
             </form>
@@ -53,8 +53,8 @@
     </article>
 </div>
 <div>
-    <article class="card">
-        <header>Features</header>
+    <article class="card card-secondary">
+        <header class="bot-bor">Features</header>
         <footer>
             <ul>
                 <li>File Backup</li>
