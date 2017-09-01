@@ -45,6 +45,7 @@
                 <a href="/pictures" class="pseudo button">Pictures</a>
                 <a href="http://localhost" class="pseudo button">Lap Times</a>
                 <a href="/files" class="pseudo button">Files</a>
+                <a href="/locker" class="pseudo button">Locker</a>
                 <a href="/account" class="pseudo button">Account</a>
                 <a href="/logout" class="button btn-a">Logout</a>
             @endif
@@ -53,8 +54,8 @@
 
     <main>
         <div class="flex one two-1200 bg-lt-blue">
-            <div class="full half-1200 pad0"><p class="pull-left bgText marginL20">Welcome, {{ $name }}</p></div>
-            <div class="none half-1200 pad0"><p class="pull-right bgText marginR20">{{ $date }}</p></div>
+            <div class="full half-1200 pad0"><p class="pull-left bgText marginL20">Welcome, {{ $user['name'] }}</p></div>
+            <div class="none half-1200 pad0"><p class="pull-right bgText marginR20">{{ $user['date'] }}</p></div>
         </div>
         <section class="container">
             @yield('content')

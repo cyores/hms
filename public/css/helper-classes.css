@@ -8,11 +8,16 @@
 .text-right  { text-align: right; }
 
 /* Text Sizes */
-.hgText { font-size: 2.0em; line-height: 1.8em; }
-.bgText { font-size: 1.5em; line-height: 1.3em; }
+.hgText { font-size: 2.0em; line-height: 1.4em; }
+.bgText { font-size: 1.7em; line-height: 1.2em; }
 .mdText { font-size: 1.2em; line-height: 1.0em; }
-.smText { font-size: 1.0em; line-height: 1.0em; }
-.tyText { font-size: 0.8em; line-height: 0.7em; }
+.smText { font-size: 1.0em; }
+.tyText { font-size: 0.8em; line-height: 1.0em; }
+
+/* Text Colors */
+.blk-text { color: #000; }
+.gry-text { color: #333; }
+.wht-text { color: #fff; }
 
 /* Margin Classes */
 .margin0 { margin: 0; }
@@ -54,6 +59,7 @@
 .pad50 { padding: 50px; }
 
 .padT0  { padding-top: 0; }
+.padT3  { padding-top: 3px; }
 .padT10 { padding-top: 10px; }
 .padT20 { padding-top: 20px; }
 .padT30 { padding-top: 30px; }
@@ -75,4 +81,4 @@
 
 /* Icons */
 .icon { max-height: 20px; cursor: pointer; }
-.icon-plus { background: url("images/icon.plus.svg"); }
+.icon-plus { background: url("/images/icons/plus.svg"); background-repeat: no-repeat;}

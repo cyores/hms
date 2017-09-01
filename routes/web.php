@@ -21,6 +21,13 @@ Route::group(['middleware' => ['auth']], function(){
 	// Pictures routes
 	Route::any('pictures', 'PictureController@index');
 
+	// Locker routes
+	Route::post('locker/edit/applychanges', 'LockerController@postApplyChanges');
+	Route::any('locker/edit/{entry_id}', 'LockerController@anyEditIndex');
+	Route::post('locker/delete', 'LockerController@postDelete');
+	Route::post('locker/search', 'LockerController@postSearch');
+	Route::post('locker/newentry', 'LockerController@postNewEntry');
+	Route::any('locker', 'LockerController@index');
 
 });
 

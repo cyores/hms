@@ -35,7 +35,7 @@
 <section class="flex one two-1200">
 
 <div>
-    <article class="card">
+    <article class="card card-primary">
         <header class="text-center">Login</header>
         <footer>
             <form method="POST" action="{{ route('login') }}">
@@ -75,7 +75,7 @@
 </div>
 
 <div>
-    <article class="card">
+    <article class="card card-third">
         <header class="text-center">No Account?</header>
         <footer>
             <h3>Features</h3>
