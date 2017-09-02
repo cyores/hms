@@ -12,7 +12,7 @@
 
 <input class="full" id="search" type="search" placeholder="Search" onkeyup="search()" autofocus>
 
-<div class="flex one three-1200 marginT10" id="results" style="min-height: 575px;">
+<div class="flex one three-1200 marginT10" id="results" style="min-height: 500px;">
     
 </div>
 
@@ -54,10 +54,10 @@ function newEntry() {
     $.ajax({
         url: '/locker/newentry',
         type: 'POST',
-        // xhr: function() {
-        //     var mxXhr = $.ajaxSettings.xhr();
-        //     return mxXhr;
-        // },
+        xhr: function() {
+            var mxXhr = $.ajaxSettings.xhr();
+            return mxXhr;
+        },
         success: function() {
             console.log('Successfully added new entry');
         },
@@ -99,7 +99,7 @@ function search() {
             else {
                 for (var i = 0; i < data.length; i++) {
                     result = data[i];
-                    $('#results').append(buildCard(result['service'], result['email'], result['username'], result['password'], result['entry_id']));
+                    $('#results').append(buildCard(result['service'], result['email'], result['username'], result['password'], result['entry_id'], i));
                 } 
             }
             
@@ -115,12 +115,12 @@ function search() {
 
 }
 
-function buildCard(service, email, username, password, id) {
-    var rnum = Math.floor(Math.random() * 2) + 1 ;
-    var color = '';
-    switch(rnum) {
-        case 1: color = 'card-third'; break;
-        case 2: color = 'card-secondary'; break;
+function buildCard(service, email, username, password, id, colorNum) {
+    if(colorNum % 2 == 0) {
+        color = 'card-secondary';
+    }
+    else {
+        color = 'card-third';
     }
     var card =  '<div class="third" id="card_'+id+'">'
                     +'<article class="card '+color+'">'
