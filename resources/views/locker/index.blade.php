@@ -122,7 +122,7 @@ function buildCard(service, email, username, password, id, colorNum) {
     else {
         color = 'card-third';
     }
-    var card =  '<div class="third" id="card_'+id+'">'
+    var card =  '<div class="full third-1200" id="card_'+id+'">'
                     +'<article class="card '+color+'">'
                         +'<header>' 
                             +'<p class="mdText">'+ service 
