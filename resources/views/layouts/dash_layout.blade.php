@@ -43,7 +43,6 @@
             <a href="/tv" class="pseudo button">TV Shows</a>
             @if(Auth::check())
                 <a href="/pictures" class="pseudo button">Pictures</a>
-                <a href="http://localhost" class="pseudo button">Lap Times</a>
                 <a href="/files" class="pseudo button">Files</a>
                 <a href="/locker" class="pseudo button">Locker</a>
                 <a href="/account" class="pseudo button">Account</a>
