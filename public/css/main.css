@@ -1,7 +1,7 @@
 /*  
 	COLORS:
 	primary:   #333333
-	secondary: #1DE9B6
+	secondary: #19D2D2
 	third:     #E91D50
 	body:      #9E9E9E
 
@@ -43,7 +43,7 @@ input { color: #333; }
 
 /* BACKGROUNDS */
 .bg-primary   { background-color: #333333; }
-.bg-secondary { background-color: #1DE9B6;  color: #333333; }
+.bg-secondary { background-color: #19D2D2;  color: #333333; }
 .bg-third     { background-color: #E91D50; }
 .bg-purple    { background-color: #B61DE9; }
 .bg-gold      { background-color: #E9B61D;  color: #333333; }
@@ -51,7 +51,7 @@ input { color: #333; }
 
 /* BUTTONS */
 .default {
-	background-color: #1DE9B6;
+	background-color: #19D2D2;
 	color: #333333;
 }
 .btn-third {
@@ -59,7 +59,7 @@ input { color: #333; }
 }
 
 .btn-a {
-	background-color: #1DE9B6 !important;
+	background-color: #19D2D2 !important;
 	color: #333333 !important;
 }
 
@@ -99,7 +99,7 @@ input { color: #333; }
 /* Cards */
 .card-tp      { border: none; background-color: rgba(0,0,0,0) !important; }
 .card-primary   { border: none; background-color: #333333 !important; }
-.card-secondary { border: none; background-color: #1DE9B6 !important;  color: #333333; }
+.card-secondary { border: none; background-color: #19D2D2 !important;  color: #333333; }
 .card-third     { border: none; background-color: #E91D50 !important; }
 .card-purple    { border: none; background-color: #B61DE9 !important; }
 .card-gold      { border: none; background-color: #E9B61D !important; color: #333333; }

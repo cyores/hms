@@ -41,6 +41,7 @@
         <div class="menu"> 
             @if(Auth::check())
                 <a href="/locker" class="pseudo button">Locker</a>
+                <a href="/transactions" class="pseudo button">Transactions</a>
                 <a href="/account" class="pseudo button">Account</a>
                 <a href="/logout" class="button btn-a">Logout</a>
             @endif
