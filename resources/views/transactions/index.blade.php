@@ -4,11 +4,34 @@
 @section('content')
 
 <style type="text/css">
-    tr:nth-child(even) { background-color: rgba(0,0,0,0); }
-    td > img { cursor: pointer; }
+    table { width: 100%; }
+    td, th { padding: 10px; }
 </style>
 
-<h1>Transactions</h1>
+<h1>All Transactions</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th class="bg-secondary">Vendor</th>
+            <th class="bg-secondary">Amount</th>
+            <th class="bg-secondary">Type</th>
+            <th class="bg-secondary">Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($all as $key => $value)
+            <tr>
+                <td>{{ $value['vendor'] }}</td>
+                <td>${{ $value['amount'] }}</td>
+                <td>{{ $value['type'] }}</td>
+                <td>{{ $value['cate'] }}</td>
+            </tr>
+        @endforeach 
+    </tbody>
+</table> 
+
+
 
 <div class="action-btn-group">
     <label for="modal">
