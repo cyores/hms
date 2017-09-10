@@ -13,7 +13,8 @@ use View;
 class TransactionController extends Controller
 {
     public function index() {
-    	$return_array = array();
+    	$return_array['all'] = Transaction::getAllTransactions();
+    	$return_array['month'] = Transaction::getTransactionsFromPast('month');
     	return View::make('transactions.index', $return_array);
     }
 }
