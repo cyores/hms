@@ -68,9 +68,9 @@ var allChart = new Chart(ctx, {
         datasets: [{
             data: amts,
             backgroundColor: [
-                'rgba(25, 210, 210, 1)',
-                'rgba(210, 25, 25, 1)',
-                'rgba(233, 182, 29, 1)',
+                'rgba(25, 210, 210, 0.5)',
+                'rgba(210, 25, 25, 0.5)',
+                'rgba(233, 182, 29, 0.5)',
                 'rgba(54, 162, 235, 0.5)',
                 'rgba(255, 206, 86, 0.5)',
                 'rgba(75, 192, 192, 0.5)',
@@ -120,9 +120,9 @@ var moChart = new Chart(ctxTwo, {
         datasets: [{
             data: mo_amts,
             backgroundColor: [
-                'rgba(25, 210, 210, 1)',
-                'rgba(210, 25, 25, 1)',
-                'rgba(233, 182, 29, 1)',
+                'rgba(25, 210, 210, 0.5)',
+                'rgba(210, 25, 25, 0.5)',
+                'rgba(233, 182, 29, 0.5)',
                 'rgba(54, 162, 235, 0.5)',
                 'rgba(255, 206, 86, 0.5)',
                 'rgba(75, 192, 192, 0.5)',
