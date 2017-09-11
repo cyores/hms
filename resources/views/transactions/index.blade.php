@@ -28,6 +28,7 @@
             <th class="bg-secondary">Amount</th>
             <th class="bg-secondary">Type</th>
             <th class="bg-secondary">Category</th>
+            <th class="bg-secondary">Date</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +38,7 @@
                 <td>${{ $value['amount'] }}</td>
                 <td>{{ $value['type'] }}</td>
                 <td>{{ $value['cate'] }}</td>
+                <td>{{ $value['date'] }}</td>
             </tr>
         @endforeach 
     </tbody>
@@ -62,10 +64,41 @@ var allChart = new Chart(ctx, {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
             data: [12, 19, 3, 5, 2, 3],
-        }]
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }],
     },
     options: {
-
+        title: {
+            display: true,
+            text: 'All Time',
+            fontSize: 20,
+            fontColor: '#EEEEEE',
+            padding: 10,
+        },
+        legend: {
+            position: 'bottom',
+            labels: {
+                fontSize: 15,
+                fontColor: '#EEEEEE',
+                padding: 10
+            }
+        },
     }
 });
 
@@ -77,10 +110,41 @@ var moChart = new Chart(ctxTwo, {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
             data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
         }]
     },
     options: {
-
+        title: {
+            display: true,
+            text: 'Past Month',
+            fontSize: 20,
+            fontColor: '#EEEEEE',
+            padding: 10
+        },
+        legend: {
+            position: 'bottom',
+            labels: {
+                fontSize: 15,
+                fontColor: '#EEEEEE',
+                padding: 10
+            }
+        },
     }
 });
 

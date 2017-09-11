@@ -24,7 +24,7 @@ class Transaction extends Model
     										'type'   => $value->type,
     										'cate'   => $value->cate,
     										'desc'   => $value->desc,
-    										'date'   => $value->date
+    										'date'   => (new Carbon($value->date))->toFormattedDateString()
     										));
     	}
 
