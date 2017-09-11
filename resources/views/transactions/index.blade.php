@@ -10,7 +10,9 @@
     td, th { padding: 10px; }
 </style>
 
-<div class="flex one two-1200 pad50">
+<h1>Transactions</h1>
+
+<div class="flex one two-1200">
     <div class="full half-1200">
         <canvas id="all-chart"></canvas>
     </div>
@@ -19,7 +21,7 @@
     </div>
 </div>
 
-<h1>All Transactions</h1>
+<h1>Transactions List</h1>
 
 <table>
     <thead>
@@ -55,17 +57,20 @@
 </div>
 
 <script>
-
+var cates = {!! json_encode($donutData['categories']) !!};
+var amts = {!! json_encode($donutData['amounts']) !!};
 
 var ctx = document.getElementById("all-chart").getContext('2d');
 var allChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: cates,
         datasets: [{
-            data: [12, 19, 3, 5, 2, 3],
+            data: amts,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.5)',
+                'rgba(25, 210, 210, 1)',
+                'rgba(210, 25, 25, 1)',
+                'rgba(233, 182, 29, 1)',
                 'rgba(54, 162, 235, 0.5)',
                 'rgba(255, 206, 86, 0.5)',
                 'rgba(75, 192, 192, 0.5)',
@@ -73,7 +78,9 @@ var allChart = new Chart(ctx, {
                 'rgba(255, 159, 64, 0.5)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
+                'rgba(25, 210, 210, 1)',
+                'rgba(210, 25, 25, 1)',
+                'rgba(233, 182, 29, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -102,16 +109,20 @@ var allChart = new Chart(ctx, {
     }
 });
 
+var months = {!! json_encode($spm['months']) !!};
+var mo_amts = {!! json_encode($spm['mo_amts']) !!};
 
 var ctxTwo = document.getElementById("mo-chart").getContext('2d');
 var moChart = new Chart(ctxTwo, {
-    type: 'doughnut',
+    type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: months,
         datasets: [{
-            data: [12, 19, 3, 5, 2, 3],
+            data: mo_amts,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.5)',
+                'rgba(25, 210, 210, 1)',
+                'rgba(210, 25, 25, 1)',
+                'rgba(233, 182, 29, 1)',
                 'rgba(54, 162, 235, 0.5)',
                 'rgba(255, 206, 86, 0.5)',
                 'rgba(75, 192, 192, 0.5)',
@@ -119,7 +130,9 @@ var moChart = new Chart(ctxTwo, {
                 'rgba(255, 159, 64, 0.5)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
+                'rgba(25, 210, 210, 1)',
+                'rgba(210, 25, 25, 1)',
+                'rgba(233, 182, 29, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -132,18 +145,13 @@ var moChart = new Chart(ctxTwo, {
     options: {
         title: {
             display: true,
-            text: 'Past Month',
+            text: 'Spending Per Month',
             fontSize: 20,
             fontColor: '#EEEEEE',
             padding: 10
         },
         legend: {
-            position: 'bottom',
-            labels: {
-                fontSize: 15,
-                fontColor: '#EEEEEE',
-                padding: 10
-            }
+            display: false,
         },
     }
 });

@@ -53,4 +53,34 @@ class Transaction extends Model
     public static function getTransactionsOn(String $date) {
     	
     }
+
+    public static function getAllTimeSpending() {
+    	$user_id = Auth::id();
+    	$return_array['categories'] = array();
+    	$return_array['amounts'] = array();
+
+    	$get_cats = DB::table('transactions')->selectRaw('cate, SUM(amount) as amt')->where('user_id', '=', $user_id)->groupBy('cate')->get();
+
+    	foreach ($get_cats as $key => $value) {
+    		array_push($return_array['categories'], $value->cate);
+    		array_push($return_array['amounts'], $value->amt);
+    	}
+
+    	return $return_array;
+    }
+
+    public static function getSpendingPerMonth() {
+    	$user_id = Auth::id();
+    	$return_array['months'] = array();
+    	$return_array['mo_amts'] = array();
+
+    	$get = DB::table('transactions')->selectRaw('MONTH(`date`) as `month`, SUM(`amount`) as `amt`')->where('user_id', '=', $user_id)->groupBy('month')->get();
+
+    	foreach ($get as $key => $value) {
+    		array_push($return_array['months'], date("F",mktime(0,0,0,$value->month,1,2017)));
+    		array_push($return_array['mo_amts'], $value->amt);
+    	}
+
+    	return $return_array;
+    }
 }

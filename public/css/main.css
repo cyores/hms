@@ -2,7 +2,7 @@
 	COLORS:
 	primary:   #333333
 	secondary: #19D2D2
-	third:     #E91D50
+	third:     #D21919
 	body:      #9E9E9E
 
 	light primary: #232FA8
@@ -44,7 +44,7 @@ input { color: #333; }
 /* BACKGROUNDS */
 .bg-primary   { background-color: #333333; }
 .bg-secondary { background-color: #19D2D2;  color: #333333; }
-.bg-third     { background-color: #E91D50; }
+.bg-third     { background-color: #D21919; }
 .bg-purple    { background-color: #B61DE9; }
 .bg-gold      { background-color: #E9B61D;  color: #333333; }
 
@@ -55,7 +55,7 @@ input { color: #333; }
 	color: #333333;
 }
 .btn-third {
-	background-color: #E91D50;
+	background-color: #D21919;
 }
 
 .btn-a {
@@ -100,7 +100,7 @@ input { color: #333; }
 .card-tp      { border: none; background-color: rgba(0,0,0,0) !important; }
 .card-primary   { border: none; background-color: #333333 !important; }
 .card-secondary { border: none; background-color: #19D2D2 !important;  color: #333333; }
-.card-third     { border: none; background-color: #E91D50 !important; }
+.card-third     { border: none; background-color: #D21919 !important; }
 .card-purple    { border: none; background-color: #B61DE9 !important; }
 .card-gold      { border: none; background-color: #E9B61D !important; color: #333333; }
 .card-lt-grey { border: none; background-color: rgba(255,255,255,0.25) !important; }
