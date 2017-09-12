@@ -50,11 +50,77 @@
 
 <div class="action-btn-group">
     <label for="modal">
-        <div class="action-btn bg-secondary">
+        <div class="action-btn bg-secondary" onclick="newTAModal()">
             <img class="img-responsive" src="/images/icons/plus.svg">
         </div>
     </label>
 </div>
+
+<script type="text/javascript">
+var ALL_CATES = {!! json_encode($nta_cates) !!};
+var ALL_TYPES = {!! json_encode($nta_types) !!};
+
+function newTAModal() {
+    var body =   '<form class="pad30" onsubmit="newTA();">'
+                    +'<input id="vendor" class="marginT10" type="text" placeholder="Vendor" autocomplete="off" required>'
+                    +'<input id="amt" class="marginT10" type="number" step="0.1" placeholder="Amount" autocomplete="off" required>'
+                    +'<select id="type" class="marginT10">'
+                        +'<option disabled>Transaction Type</option>'
+                        for (var i = 0; i < ALL_TYPES.length; i++) {
+                            body+='<option>'+ALL_TYPES[i]+'</option>';
+                        }
+               body+='</select>'
+                    +'<select id="cate" class="marginT10">'
+                        +'<option disabled>Category</option>';
+                        for (var i = 0; i < ALL_CATES.length; i++) {
+                            body+='<option>'+ALL_CATES[i]+'</option>';
+                        }
+               body+='</select>'
+                    +'<input id="desc" class="marginT10" type="text" placeholder="Description" autocomplete="off">'
+                    +'<input id="tags" class="marginT10" type="text" placeholder="Tags" autocomplete="off">'
+                    +'<input id="date" class="marginT10" type="date">'
+                    +'<button class="default marginT10" type="submit">Submit</button>'
+                +'</form>';
+
+    $('#model_title').html('New Transaction');
+    $('#model_body').html(body);
+    $('#model_footer').html('');
+}
+
+function newTA() {
+    console.log('Creating new transaction');
+    var formData = new FormData();
+
+    formData.append('vendor', $('#vendor').val());
+    formData.append('amt', $('#amt').val());
+    formData.append('type', $('#type').val());
+    formData.append('cate', $('#cate').val());
+    formData.append('desc', $('#desc').val());
+    formData.append('tags', $('#tags').val());
+    formData.append('date', $('#date').val());
+
+    $.ajax({
+        url: '/transactions/newtransaction',
+        type: 'POST',
+        xhr: function() {
+            var mxXhr = $.ajaxSettings.xhr();
+            return mxXhr;
+        },
+        success: function() {
+            console.log('Successfully added new transaction');
+        },
+        error: function() {
+            console.log('There was an error adding new transaction');
+        },
+        // Actual data
+        data: formData,
+        // Options to tell jQuery not to process data or worry about content-type.
+        cache: false, contentType: false, processData: false
+    });
+    
+}
+
+</script>
 
 <script>
 var cates = {!! json_encode($donutData['categories']) !!};

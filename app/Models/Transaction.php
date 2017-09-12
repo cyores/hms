@@ -83,4 +83,32 @@ class Transaction extends Model
 
     	return $return_array;
     }
+
+    public static function getCates() {
+
+        $cates = DB::select('SHOW COLUMNS FROM `transactions` LIKE \'cate\'');
+
+        $vals = str_replace('enum', '', $cates[0]->Type);
+        $vals = str_replace('(', '', $vals);
+        $vals = str_replace(')', '', $vals);
+        $vals = str_replace('\'', '', $vals);
+        $vals = explode(',', $vals);
+        // dd(json_encode($vals));
+        return $vals;
+
+    }
+
+    public static function getTypes() {
+
+        $cates = DB::select('SHOW COLUMNS FROM `transactions` LIKE \'type\'');
+
+        $vals = str_replace('enum', '', $cates[0]->Type);
+        $vals = str_replace('(', '', $vals);
+        $vals = str_replace(')', '', $vals);
+        $vals = str_replace('\'', '', $vals);
+        $vals = explode(',', $vals);
+        // dd(json_encode($vals));
+        return $vals;
+
+    }
 }
