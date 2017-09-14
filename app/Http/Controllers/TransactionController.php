@@ -14,9 +14,9 @@ class TransactionController extends Controller
 {
     public function index() {
     	$return_array['all'] = Transaction::getAllTransactions();
-    	$return_array['month'] = Transaction::getTransactionsFromPast('month');
     	$return_array['donutData'] = Transaction::getAllTimeSpending();
     	$return_array['spm'] = Transaction::getSpendingPerMonth();
+        $return_array['sltd'] = Transaction::getSpendingLastTenDays();
     	$return_array['nta_types'] = Transaction::getTypes();
     	$return_array['nta_cates'] = Transaction::getCates();
     	return View::make('transactions.index', $return_array);

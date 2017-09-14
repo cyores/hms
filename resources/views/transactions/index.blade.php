@@ -1,5 +1,5 @@
 @extends('layouts.minimal_layout')
-@section('title', ' | Locker')
+@section('title', ' | Transactions')
 
 @section('content')
 
@@ -17,7 +17,8 @@
         <canvas id="all-chart"></canvas>
     </div>
     <div class="full half-1200">
-        <canvas id="mo-chart"></canvas>
+        <div class="full"><canvas id="mo-chart"></canvas></div>
+        <div class="full"><canvas id="da-chart"></canvas></div>
     </div>
 </div>
 
@@ -212,6 +213,54 @@ var moChart = new Chart(ctxTwo, {
         title: {
             display: true,
             text: 'Spending Per Month',
+            fontSize: 20,
+            fontColor: '#EEEEEE',
+            padding: 10
+        },
+        legend: {
+            display: false,
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    stepSize: 10
+                }
+            }],
+        },
+    }
+});
+
+var days = {!! json_encode($sltd['days']) !!};
+var da_amts = {!! json_encode($sltd['da_amts']) !!};
+
+for (var i = 0; i < days.length; i++) {
+    if(i == 0 || i % 2 == 0) {
+        days[i] = "";
+    }
+}
+
+var ctxThree = document.getElementById("da-chart").getContext('2d');
+var daChart = new Chart(ctxThree, {
+    type: 'line',
+    data: {
+        labels: days,
+        datasets: [{
+            data: da_amts,
+            backgroundColor: [
+                'rgba(25, 210, 210, 0.5)',
+            ],
+            borderColor: [
+                'rgba(25, 210, 210, 1)',
+
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Spending Last Ten Days',
             fontSize: 20,
             fontColor: '#EEEEEE',
             padding: 10
