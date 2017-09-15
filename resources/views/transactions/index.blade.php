@@ -62,7 +62,7 @@ var ALL_CATES = {!! json_encode($nta_cates) !!};
 var ALL_TYPES = {!! json_encode($nta_types) !!};
 
 function newTAModal() {
-    var body =   '<form class="pad30" onsubmit="newTA();">'
+    var body =   '<form class="pad30" onsubmit="newTA()">'
                     +'<input id="vendor" class="marginT10" type="text" placeholder="Vendor" autocomplete="off" required>'
                     +'<input id="amt" class="marginT10" type="number" step="0.1" placeholder="Amount" autocomplete="off" required>'
                     +'<select id="type" class="marginT10">'

@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::any('locker', 'LockerController@index');
 
 	// Transaction routes
-	Route::post('transactions/newtransaction', 'TransactionController@postNewTrasaction');
+	Route::post('transactions/newtransaction', 'TransactionController@postNewTransaction');
 	Route::any('transactions', 'TransactionController@index');
 
 });

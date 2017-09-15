@@ -32,12 +32,13 @@ class TransactionController extends Controller
     	$date   = $request->input('date');
 
     	$i = DB::table('transactions')->insert([
-    											'vendor' => $vendor,
-    											'amount' => $amt,
-    											'type' => $type,
-    											'cate' => $cate,
-    											'tags' => $tags,
-    											'date' => $date
+                                                'user_id' => $user_id,
+    											'vendor'  => $vendor,
+    											'amount'  => $amt,
+    											'type'    => $type,
+    											'cate'    => $cate,
+    											'tags'    => $tags,
+    											'date'    => $date
     											]);
 
     }
