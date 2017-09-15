@@ -28,6 +28,7 @@ class TransactionController extends Controller
     	$amt    = $request->input('amt');
     	$type   = $request->input('type');
     	$cate   = $request->input('cate');
+        $desc   = $request->input('desc');
     	$tags   = $request->input('tags');
     	$date   = $request->input('date');
 
@@ -37,6 +38,7 @@ class TransactionController extends Controller
     											'amount'  => $amt,
     											'type'    => $type,
     											'cate'    => $cate,
+                                                'desc'    => $desc,
     											'tags'    => $tags,
     											'date'    => $date
     											]);
