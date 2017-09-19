@@ -40,7 +40,7 @@ class Transaction extends Model
 
     	foreach ($get_cats as $key => $value) {
     		array_push($return_array['categories'], $value->cate);
-    		array_push($return_array['amounts'], $value->amt);
+    		array_push($return_array['amounts'], round($value->amt, 3));
     	}
 
     	return $return_array;

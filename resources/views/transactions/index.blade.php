@@ -64,7 +64,7 @@ var ALL_TYPES = {!! json_encode($nta_types) !!};
 function newTAModal() {
     var body =   '<form class="pad30" onsubmit="newTA()">'
                     +'<input id="vendor" class="marginT10" type="text" placeholder="Vendor" autocomplete="off" required>'
-                    +'<input id="amt" class="marginT10" type="number" step="0.1" placeholder="Amount" autocomplete="off" required>'
+                    +'<input id="amt" class="marginT10" type="number" step="0.01" placeholder="Amount" autocomplete="off" required>'
                     +'<select id="type" class="marginT10">'
                         +'<option disabled>Transaction Type</option>'
                         for (var i = 0; i < ALL_TYPES.length; i++) {
@@ -236,7 +236,11 @@ var da_amts = {!! json_encode($sltd['da_amts']) !!};
 
 for (var i = 0; i < days.length; i++) {
     if(i == 0 || i % 2 == 0) {
-        days[i] = "";
+        // days[i] = "";
+        days[i] = days[i].replace(', 2017', '');
+    }
+    else {
+        days[i] = days[i].replace(', 2017', '');
     }
 }
 
@@ -267,6 +271,19 @@ var daChart = new Chart(ctxThree, {
         },
         legend: {
             display: false,
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    stepSize: 2
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    display: true
+                }
+            }],
         },
     }
 });
