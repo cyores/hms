@@ -25,7 +25,7 @@ class Dashboard extends Model
     	$user_id = Auth::id();
 
 		// upcoming events
-		$get_events = DB::select('SELECT * FROM `upcoming_events` WHERE (`user_id` = ? OR `public` = "Y") AND `event_on` >= NOW() - INTERVAL 1 DAY ORDER BY `event_on` ASC LIMIT 5 ', array($user_id));
+		$get_events = DB::select('SELECT * FROM `upcoming_events` WHERE (`user_id` = ? OR `public` = "Y") AND DATE(`event_on`) >= DATE(NOW()) ORDER BY `event_on` ASC LIMIT 5 ', array($user_id));
 		foreach ($get_events as $key => $event) {
 			$return_array[$event->id] = array(
 														"title" => $event->title,
