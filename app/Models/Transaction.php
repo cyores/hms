@@ -63,6 +63,9 @@ class Transaction extends Model
     		array_push($return_array['mo_amts'], $value->amt);
     	}
 
+        $return_array['months'] = array_reverse($return_array['months']);
+        $return_array['mo_amts'] = array_reverse($return_array['mo_amts']);
+
     	return $return_array;
     }
 
