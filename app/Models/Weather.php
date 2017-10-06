@@ -36,9 +36,11 @@ class Weather extends Model
     	$london = 6058560;
     	$call_url = 'http://api.openweathermap.org/data/2.5/weather?id=' . $vaughan . "&units=metric" . '&appid=' . $key;
 
-        try {
-            $response = json_decode(file_get_contents($call_url));
+        $headers = get_headers($call_url);
+        $error_code = substr($headers[0], 9, 3);
 
+        if($error_code == '200'){
+            $reposonse = json_decode(file_get_contents($call_url));
             $return_array['city']     = $response->name;
             $return_array['temp']     = round($response->main->temp);
             $return_array['humidity'] = $response->main->humidity;
@@ -57,18 +59,16 @@ class Weather extends Model
                                 array($return_array['city'], $return_array['temp'], $return_array['humidity'], $return_array['title'], $return_array['desc'],
                                         $return_array['icon'], 'current'));
             }
-            
-
-        } catch(Exception $e) {
+        }
+        else {
             $return_array['city']     = 'Could not connect';
             $return_array['temp']     = 'null';
             $return_array['humidity'] = 'null';
             $return_array['title']    = 'null';
             $return_array['desc']     = 'null';
             $return_array['icon']     = 'null';
-        }
+        } 
     	
-
     	return $return_array;
     }
 
