@@ -40,7 +40,7 @@ class Weather extends Model
         $error_code = substr($headers[0], 9, 3);
 
         if($error_code == '200'){
-            $reposonse = json_decode(file_get_contents($call_url));
+            $response = json_decode(file_get_contents($call_url));
             $return_array['city']     = $response->name;
             $return_array['temp']     = round($response->main->temp);
             $return_array['humidity'] = $response->main->humidity;
